@@ -1,7 +1,7 @@
 <?php
 function getDBConnection(){
     $host = 'localhost';
-    $db_name = 'supermercado';
+    $db_name = 'FormulaGear';
     $user = 'mathias';
     $pass = 'root';
 

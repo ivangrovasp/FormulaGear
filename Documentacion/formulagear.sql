@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-11-2024 a las 14:03:47
+-- Tiempo de generación: 05-11-2024 a las 10:00:47
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -75,6 +75,18 @@ CREATE TABLE `sesion` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `talla`
+--
+
+CREATE TABLE `talla` (
+  `idTalla` int(11) NOT NULL,
+  `nombreTalla` varchar(255) NOT NULL,
+  `idProducto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -82,7 +94,7 @@ CREATE TABLE `usuario` (
   `idUsuario` int(11) NOT NULL,
   `nombreUsuario` varchar(255) NOT NULL,
   `correoUsuario` varchar(255) NOT NULL,
-  `permisosUsuario` BIT NOT NULL,
+  `permisosUsuario` bit(1) NOT NULL,
   `passUsuario` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -120,6 +132,13 @@ ALTER TABLE `sesion`
   ADD KEY `fk_sesion_usuario` (`idUsuario`);
 
 --
+-- Indices de la tabla `talla`
+--
+ALTER TABLE `talla`
+  ADD PRIMARY KEY (`idTalla`),
+  ADD KEY `fk_producto_talla` (`idProducto`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -154,6 +173,12 @@ ALTER TABLE `sesion`
   MODIFY `idSesion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `talla`
+--
+ALTER TABLE `talla`
+  MODIFY `idTalla` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -182,6 +207,12 @@ ALTER TABLE `pedido`
 --
 ALTER TABLE `sesion`
   ADD CONSTRAINT `fk_sesion_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
+
+--
+-- Filtros para la tabla `talla`
+--
+ALTER TABLE `talla`
+  ADD CONSTRAINT `fk_producto_talla` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

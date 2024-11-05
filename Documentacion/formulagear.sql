@@ -57,6 +57,7 @@ CREATE TABLE `producto` (
   `nombreProducto` varchar(255) NOT NULL,
   `precioProducto` decimal(10,0) NOT NULL,
   `descripcionProducto` varchar(255) NOT NULL,
+  `imagenProducto` varchar(255) NOT NULL,
   `numeroLikesProducto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

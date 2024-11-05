@@ -64,17 +64,6 @@ CREATE TABLE `producto` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sesion`
---
-
-CREATE TABLE `sesion` (
-  `idSesion` int(11) NOT NULL,
-  `idUsuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `talla`
 --
 
@@ -124,12 +113,7 @@ ALTER TABLE `pedido`
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`idProducto`);
 
---
--- Indices de la tabla `sesion`
---
-ALTER TABLE `sesion`
-  ADD PRIMARY KEY (`idSesion`),
-  ADD KEY `fk_sesion_usuario` (`idUsuario`);
+
 
 --
 -- Indices de la tabla `talla`
@@ -166,11 +150,6 @@ ALTER TABLE `pedido`
 ALTER TABLE `producto`
   MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT de la tabla `sesion`
---
-ALTER TABLE `sesion`
-  MODIFY `idSesion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `talla`
@@ -202,11 +181,6 @@ ALTER TABLE `pedido`
   ADD CONSTRAINT `fk_producto` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`),
   ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
 
---
--- Filtros para la tabla `sesion`
---
-ALTER TABLE `sesion`
-  ADD CONSTRAINT `fk_sesion_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
 
 --
 -- Filtros para la tabla `talla`

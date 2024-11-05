@@ -24,5 +24,3 @@ INSERT INTO `favorito`(`idUsuario`,`idProducto`)VALUES(2,2);
 /*INSERTAR PEDIDO*/
 INSERT INTO `pedido`(`idUsuario`,`idProducto`)VALUES(1,1);
 INSERT INTO `pedido`(`idUsuario`,`idProducto`)VALUES(2,2);
-/*INSERTAR  SESION*/
-INSERT INTO `sesion`(`idSesion`,`idUsuario`)VALUES(1,1);

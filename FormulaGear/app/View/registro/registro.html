@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registro.css">
+    <title>Formula Gear</title>
+</head>
+<body>
+    <div class="header-container">
+        <div class="logo-container">
+            FormulaGear 
+            
+        </div>
+        <div class="img-container">
+            <img id="neumatico" src="../../../imagenes/neumatico.png" alt="Neumático f1">
+        </div>
+        
+        
+    </div>
+
+    <div class="contenido-container">
+        <div class="formulario-header">
+            <img src="../../../imagenes/formula_1_PNG57.png" alt="coche f1">
+        </div>
+        <div class="formulario-container">
+            <form action="validacion.php" method="post">
+                <input type="text" name="nombre" placeholder="nombre usuario">
+                <input type="email" name="email" placeholder="email">
+                <input type="password" name="password" placeholder="contraseña">
+                <div class="terminos-condiciones">
+                    <input type="checkbox" name="terminos-condiciones" id="terminos-condiciones">He leído y acepto los términos y condiciones
+                </div>
+                <input type="submit" id="submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

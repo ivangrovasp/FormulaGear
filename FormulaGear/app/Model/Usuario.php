@@ -85,7 +85,7 @@ Class Usuario{
             $query->bindParam(1, $email);
             $query->execute();
             $res = $query->fetchAll(PDO::FETCH_ASSOC);
-            return $res;
+            return $res!=null;
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
         }

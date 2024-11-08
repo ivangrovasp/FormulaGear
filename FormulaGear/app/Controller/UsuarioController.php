@@ -13,6 +13,14 @@ class UsuarioController {
         }
     }
 
-}
+    public function crearUsuario($nombreUsuario, $correoUsuario,$passUsuario){
+        $user = new Usuario(0,$nombreUsuario, $correoUsuario,false,$passUsuario);
+        if($user->findUserByEmail($correoUsuario)){
+            return false;
+        }else{
+            $user->crearUsuario($user);
+        }
+        return true ;
+    }
 
-?>
+}

@@ -1,6 +1,5 @@
 <?php
-
-require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/config/dbConnection.php";
+require_once 'C:/xampp/htdocs/FormulaGear/FormulaGear/config/dbConnection.php';
 Class Usuario{
     private $idUsuario;
     private $nombreUsuario;
@@ -62,6 +61,33 @@ Class Usuario{
             return $result;
         } catch (Exception $e) {
             echo "Error: ". $e->getMessage();
+        }
+    }
+
+    public  function crearUsuario($user){
+        try {
+            $conn = getDBConnection();
+            $query = $conn->prepare("INSERT INTO `usuario`(`nombreUsuario`, `correoUsuario`, `permisosUsuario`, `passUsuario`) VALUES (?,?,?,?)");
+            $query->bindParam(1, $user->getNombreUsuario());
+            $query->bindParam(2, $user->getCorreoUsuario());
+            $query->bindParam(3, $user->getPermisosUsuario());
+            $query->bindParam(4, $user->getPassUsuario());
+            $query->execute();
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+    }
+
+    public  function findUserByEmail($email){
+        try {
+            $conn = getDBConnection();
+            $query = $conn->prepare("SELECT * FROM `usuario` WHERE correoUsuario = ?");
+            $query->bindParam(1, $email);
+            $query->execute();
+            $res = $query->fetchAll(PDO::FETCH_ASSOC);
+            return $res;
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
         }
     }
 }

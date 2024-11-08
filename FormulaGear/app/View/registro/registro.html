@@ -25,11 +25,11 @@
         </div>
         <div class="formulario-container">
             <form action="registro.php" method="post">
-                <input type="text" name="nombre" placeholder="nombre usuario">
-                <input type="email" name="email" placeholder="email">
-                <input type="password" name="password" placeholder="contraseña">
+                <input type="text" name="nombre" placeholder="nombre usuario" required>
+                <input type="email" name="email" placeholder="email" required>
+                <input type="password" name="password" placeholder="contraseña" required>
                 <div class="terminos-condiciones">
-                    <input type="checkbox" name="terminos-condiciones" id="terminos-condiciones">He leído y acepto los términos y condiciones
+                    <input type="checkbox" name="terminos-condiciones" id="terminos-condiciones" required>He leído y acepto los términos y condiciones
                 </div>
                 <input type="submit" id="submit" value="Registrarse">
             </form>

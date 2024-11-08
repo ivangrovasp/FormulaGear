@@ -9,9 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (filter_var($correoFiltrado, FILTER_VALIDATE_EMAIL)) {
         $favoritosController = new UsuarioController();
-        $favoritosController->getUserbyEmail($correoFiltrado, $contraseñaFiltrada);
+        $llamadaLoginController = $favoritosController->getLogin($correoFiltrado, $contraseñaFiltrada);
+
+        if ($llamadaLoginController == "Inicio de sesión exitoso"){
+            header("Location: /FormulaGear/FormulaGear/app/View/main/main.html");
+        }else{
+            echo "No hay ningún usuario registrado con ese email";
+        }
     } else {
-        echo " email is not valid";
+        echo "el email no es valido";
     }
     
 } else

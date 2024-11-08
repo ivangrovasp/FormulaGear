@@ -51,7 +51,7 @@ Class Usuario{
         $this->passUsuario = $passUsuario;
     }
 
-    public static function getUserbyEmail($correo,$contraseña) {
+    public static function getLogin($correo,$contraseña) {
         try{
             $conn = getDbConnection();
             $sentencia = $conn->prepare("SELECT * FROM usuario WHERE correoUsuario = ? AND passUsuario = ?");
@@ -59,13 +59,7 @@ Class Usuario{
             $sentencia->bindParam(2, $contraseña);
             $sentencia->execute();
             $result = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-            if ($result!=null) {
-                // Redirigir a otra página si el usuario es encontrado
-                header("Location: /FormulaGear/FormulaGear/app/View/main/main.html");
-                exit();
-            } else {
-                echo "Usuario no encontrado.";
-            }
+            return $result;
         } catch (Exception $e) {
             echo "Error: ". $e->getMessage();
         }

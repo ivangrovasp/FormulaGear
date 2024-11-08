@@ -8,8 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     if (filter_var($correoFiltrado, FILTER_VALIDATE_EMAIL)) {
-        $favoritosController = new UsuarioController();
-        $llamadaLoginController = $favoritosController->getLogin($correoFiltrado, $contraseñaFiltrada);
+        $usuariosController = new UsuarioController();
+        $llamadaLoginController = $usuariosController->getLogin($correoFiltrado, $contraseñaFiltrada);
 
         if ($llamadaLoginController == "Inicio de sesión exitoso"){
             header("Location: /FormulaGear/FormulaGear/app/View/main/main.html");

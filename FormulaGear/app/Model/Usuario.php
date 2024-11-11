@@ -103,4 +103,20 @@ Class Usuario{
             echo "ERROR: " . $e->getMessage();
         }
     }
+    public  function updateUser($nombre,$correo,$pass){
+        try {
+            $conn = getDBConnection();
+            $query = $conn->prepare("UPDATE FROM `usuario` WHERE (`nombreUsuario`, `correoUsuario`, `passUsuario`) VALUES (?,?,?)");
+            $query->bindParam(1, $nombre);
+            $query->bindParam(2, $correo);
+            $query->bindParam(3, $pass);
+            $query->execute();
+            /*
+            $res = $query->fetchAll(PDO::FETCH_ASSOC);
+            return $res!=null;
+            */
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+    }
 }

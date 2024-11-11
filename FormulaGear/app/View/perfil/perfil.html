@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="perfil.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header-container">
+        <div class="logo-container">
+            FormulaGear 
+        </div>
+        <div class="img-container">
+            <img id="neumatico" src="../../../imagenes/neumatico.png" alt="Neumático f1">
+        </div>
+        
+        
+    </div>
+    <!------------------------------------------------------------------------------------------------------------->
+    <div class="contenido-container">
+        <div class="formulario-container">
+            <form action="perfil.php" method="post">
+                <input type="text" name="nombre" placeholder="Nombre de usuario" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="contraseña" required>
+                <input type="password" name="password2" placeholder="Confirmar contraseña" required>
+                <input type="submit" id="submit" value="Aceptar">
+            </form>
+        </div>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------->
+    <div id="divPerfil">
+        <img src="../../../imagenes/perfil.png" alt="perfil" id="fotoPerfil">
+    </div>
+    <div id="nombreUsuario">
+        <p>Nombre Usuario</p>
+    </div>
+    <div id="botonSesion">
+        <button>Cerrar Sesión</button>
+    </div>
+</body>
+</html>

@@ -31,4 +31,17 @@ class UsuarioController {
         return true;
     }
 
+
+    public function updateUser($nombreUsuario, $correoUsuario,$passUsuario){
+        $user = new Usuario(0,$nombreUsuario, $correoUsuario,false,$passUsuario);
+        if($user->findUserByEmail($correoUsuario)){
+            return false;
+        }else{
+            $user->updateUser($nombreUsuario,$correoUsuario,$passUsuario);
+            $sesion = new Sesion();
+            $sesion->iniciarVariableSesion("usuario",$user);
+        }
+        return true;
+    }
+
 }

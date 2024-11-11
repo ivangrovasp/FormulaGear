@@ -9,10 +9,7 @@ Class Sesion{
 
 
     public function iniciarVariableSesion($nombre, $valorInicial){
-        //Inicializar la variable de sesión si no existe
-        if (!isset($_SESSION[$nombre])) {
-            $_SESSION[$nombre] = $valorInicial;
-        }
+        $_SESSION[$nombre] = $valorInicial;
     }
 
 

@@ -90,4 +90,17 @@ Class Usuario{
             echo "ERROR: " . $e->getMessage();
         }
     }
+    public  function getUser($user){
+        try {
+            $conn = getDBConnection();
+            $query = $conn->prepare("SELECT * FROM `usuario` WHERE correoUsuario = ?");
+            $query->bindParam(1, $user->getCorreoUsuario());
+            $query->execute();
+            $res = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            return  $res;
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+    }
 }

@@ -13,7 +13,7 @@ class UsuarioController {
         }
     }
 
-    //Verificar forma de guardar usuario en sesión
+
     public function crearUsuario($nombreUsuario, $correoUsuario,$passUsuario){
         $user = new Usuario(0,$nombreUsuario, $correoUsuario,false,$passUsuario);
         if($user->findUserByEmail($correoUsuario)){
@@ -21,7 +21,8 @@ class UsuarioController {
         }else{
             $user->crearUsuario($user);
             $sesion = new Sesion();
-            $sesion->iniciarVariableSesion("usuario",$user);
+            $sessionUser = $user->getUser($user);
+            $sesion->iniciarVariableSesion("usuario",$sessionUser[0]);
         }
         return true;
     }

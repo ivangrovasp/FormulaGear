@@ -10,11 +10,12 @@ body{
     justify-content: left;
     align-items: center; 
     height: 163px;
+    width: 100%;
     background-color: #C60000;
     border: 3px solid black;
-    
-}
-.logo-container{
+ }
+
+ .logo-container{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,6 +30,7 @@ body{
     color: white;
 
 }
+
 .img-container{
     position: absolute;
     width: 232px;
@@ -37,11 +39,65 @@ body{
     margin-bottom: 35px;
 
 }
+
 #neumatico{
     width: 220px;
     height: 295px;  
     
 }
+
+#persona-image{
+    width: 100px;
+    height: 100px;  
+    border-radius: 100px;
+}
+
+.perfil-image a{
+    margin-left: 150px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Kalam';
+    list-style: none;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}   
+
+.nav-links{
+     display: flex;
+     flex-direction: row;
+     gap: 100px;
+}
+ 
+.nav-links li {
+    width: 100px;
+    height: 50px;
+    padding:0px 20px;
+    border-radius: 10px;
+    font-family: 'Kalam';
+    background-color: #1E1E1E;
+    list-style: none;
+}
+ 
+
+ .header-container .nav-links a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;    
+ }
+
+ .header-container nav{
+    margin-left: auto;
+ }
 /*-------------------------------------------------------------------------------------------------------*/
 .contenido-container{
     display: flex;
@@ -53,8 +109,8 @@ body{
 .formulario-container{
     display: flex;
     border: 3px solid black;
-    width: 500px;
-    height: 400px;
+    width: 600px;
+    height: 500px;
     justify-content: center;
     align-items: center;
 }
@@ -65,12 +121,12 @@ form{
     justify-content: center;
     align-items: center;
     row-gap: 30px;
-    width: 400px;
+    width: 550px;
 }
 
 input{
-    width: 400px;
-    height: 35px;
+    width: 500px;
+    height: 45px;
     border: 2px solid black;
     background-color: rgb(223, 221, 221);
 }
@@ -83,36 +139,37 @@ input{
 }
 /*-----------------------------------------------------------------------------------------------------------------------------------*/
 #divPerfil{
-    margin-top:-450px;
+    margin-top:-550px;
     margin-left: 150px;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
 }
 #fotoPerfil{
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
 }
 #nombreUsuario{
-    width: 125px;
-    height: 35px;
-    margin-left: 190px;
+    width: 175px;
+    height: 45px;
+    margin-top: 20px;
+    margin-left: 210px;
     text-align: center;
 }
 p{
     font-family: 'Kalam';
 }
 #botonSesion{
-    width: 125px;
-    height: 35px;
+    width: 175px;
+    height: 45px;
     background-color: #1E1E1E;
-    margin-left: 190px;
-    margin-top:15px;
+    margin-top: 20px;
+    margin-left: 210px;
 }
 button{
-    width: 125px;
-    height: 35px;
+    width: 175px;
+    height: 45px;
     background-color: #1E1E1E;
     color: white;
 }

@@ -7,6 +7,10 @@ class UsuarioController {
     
     public function getLogin($correoFiltrado,$contraseñaFiltrada) {
         if(Usuario::getLogin($correoFiltrado,$contraseñaFiltrada)){
+            $user  = new Usuario(0,"",$correoFiltrado,false,$contraseñaFiltrada);
+            $sesion = new Sesion();
+            $sessionUser = $user->getUser($user);
+            $sesion->iniciarVariableSesion("usuario",$sessionUser[0]);
             return "Inicio de sesión exitoso";
         }else{
             return "Correo no encontrado";

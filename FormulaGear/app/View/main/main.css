@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
 
-body{
+body {
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
- }
- 
- .header-container{
+}
+
+.header-container {
     display: flex;
     justify-content: left;
-    align-items: center; 
+    align-items: center;
     height: 163px;
     width: 100%;
     background-color: #C60000;
     border: 3px solid black;
- }
+}
 
- .logo-container{
+.logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,7 +32,7 @@ body{
 
 }
 
-.img-container{
+.img-container {
     position: absolute;
     width: 232px;
     height: 254px;
@@ -41,19 +41,19 @@ body{
 
 }
 
-#neumatico{
+#neumatico {
     width: 220px;
-    height: 295px;  
-    
+    height: 295px;
+
 }
 
-#persona-image{
+#persona-image {
     width: 100px;
-    height: 100px;  
+    height: 100px;
     border-radius: 100px;
 }
 
-.perfil-image a{
+.perfil-image a {
     margin-left: 150px;
     margin-right: 50px;
     display: flex;
@@ -66,26 +66,26 @@ p {
     margin-top: 0;
     margin-bottom: 0;
     text-align: center;
-}   
-
-.nav-links{
-     display: flex;
-     flex-direction: row;
-     gap: 100px;
 }
- 
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
 .nav-links li {
     width: 100px;
     height: 50px;
-    padding:0px 20px;
+    padding: 0px 20px;
     border-radius: 10px;
     font-family: 'Kalam';
     background-color: #1E1E1E;
     list-style: none;
 }
- 
 
- .header-container .nav-links a{
+
+.header-container .nav-links a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,12 +93,42 @@ p {
     height: 50px;
     font-size: 30px;
     color: white;
-    text-decoration: none;    
- }
+    text-decoration: none;
+}
 
- .header-container nav{
+.header-container nav {
     margin-left: auto;
- }
+}
 
- 
- 
+.footer {
+    background-color: #C60000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    font-size: 17px;
+    width: 2000px;
+    height: 100px;
+    bottom: 0;
+}
+
+.rrss {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.footer .pfooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -16,5 +16,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['terminos-condiciones']
         echo "Input no válido";
     }
 }else{
-    echo "va a ser que no";
+    echo "Salió algo mal";
 }

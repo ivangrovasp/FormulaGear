@@ -103,18 +103,19 @@ Class Usuario{
             echo "ERROR: " . $e->getMessage();
         }
     }
-    public  function updateUser($nombre,$correo,$pass){
+    public  function updateUser($newUser){
+        $nombreUsuario = $newUser->getNombreUsuario();
+        $correoUsuario = $newUser->getCorreoUsuario();
+        $passUsuario = $newUser->getPassUsuario();
+        $idUsuario = $newUser->getIdUsuario();
         try {
             $conn = getDBConnection();
-            $query = $conn->prepare("UPDATE FROM `usuario` WHERE (`nombreUsuario`, `correoUsuario`, `passUsuario`) VALUES (?,?,?)");
-            $query->bindParam(1, $nombre);
-            $query->bindParam(2, $correo);
-            $query->bindParam(3, $pass);
+            $query = $conn->prepare("UPDATE `usuario` SET `nombreUsuario` = ?, `correoUsuario` = ?, `passUsuario` = ?  WHERE idUsuario = ?");
+            $query->bindParam(1, $nombreUsuario);
+            $query->bindParam(2, $correoUsuario);
+            $query->bindParam(3, $passUsuario);
+            $query->bindParam(4, $idUsuario);
             $query->execute();
-            /*
-            $res = $query->fetchAll(PDO::FETCH_ASSOC);
-            return $res!=null;
-            */
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
         }

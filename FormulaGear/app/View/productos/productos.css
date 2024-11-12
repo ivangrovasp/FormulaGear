@@ -146,6 +146,7 @@ p {
 
 .trending-products{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 100px;
@@ -218,7 +219,7 @@ p {
     position: absolute;
     width: 300px;
     height: 300px;
-    z-index: 0;  
+    z-index: -1;  
 }
 
 /* Z- index se utiliza para establecer que elementos se superponen a otros */

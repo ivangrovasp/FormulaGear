@@ -5,6 +5,7 @@ body {
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .header-container {
@@ -16,6 +17,7 @@ body {
     background-color: #C60000;
     border: 3px solid black;
     position: fixed;
+    z-index: 1;
 }
 
 .logo-container {
@@ -103,13 +105,13 @@ p {
 }
 
 .footer {
+    margin-top: 30px;
     background-color: #C60000;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
     font-size: 17px;
     width: 2000px;
     height: 100px;
@@ -122,8 +124,7 @@ p {
     margin-left: 10px;
     margin-right: 10px;
 }
-
-.footer .pfooter {
+.pfooter {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,4 +160,83 @@ p {
     font-family: 'Kalam';
     color: white;
     background-color: #1E1E1E;
+    margin-bottom: 20px;
 }
+
+.trending-products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.contenido-container{
+    box-shadow: rgb(104, 104, 104) 10px 10px 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.detail-header{
+    display: flex;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-top: 3px solid black;
+    width: 411px;
+    height: 446px;
+    justify-content: center;
+    align-items: center;
+    
+}
+.detail-container{
+    display: flex;
+    border: 3px solid black;
+    width: 411px;
+    height: 298px;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.detail-container p{
+    font-family: 'Kalam';
+    font-size: 36px;
+}
+
+.detail-container .precio{
+    font-family: 'Kalam';
+    color: #0D9B7E;
+    font-size: 96px;
+}
+
+.likes{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center ;
+    margin-left: auto;
+    margin-top: auto;
+}
+
+.likes p{
+    font-family: 'Kalam';
+    color: #d10034;
+    font-size: 30px;
+}
+
+.img-like{
+    width: 75px;
+    height: 75px;
+}
+
+.img-product{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    z-index: 0;  
+}
+
+/* Z- index se utiliza para establecer que elementos se superponen a otros */

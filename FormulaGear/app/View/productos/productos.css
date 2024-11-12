@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap');
+
+body {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    
+}
+
+.header-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 163px;
+    width: 100%;
+    background-color: #C60000;
+    border: 3px solid black;
+    position: fixed;
+    z-index: 1;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 116px;
+    padding-right: 35px;
+    padding-left: 35px;
+    margin-left: 20px;
+    border-radius: 10px;
+    font-size: 64px;
+    font-family: 'Kalam';
+    background-color: #1E1E1E;
+    color: white;
+
+}
+
+.img-container {
+    position: absolute;
+    width: 232px;
+    height: 254px;
+    margin-left: 355px;
+    margin-bottom: 35px;
+
+}
+
+#neumatico {
+    width: 220px;
+    height: 295px;
+
+}
+
+#persona-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+
+.perfil-image a {
+    margin-left: 150px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Kalam';
+    list-style: none;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.nav-links li {
+    width: 100px;
+    height: 50px;
+    padding: 0px 20px;
+    border-radius: 10px;
+    font-family: 'Kalam';
+    background-color: #1E1E1E;
+    list-style: none;
+}
+
+
+.header-container .nav-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.header-container nav {
+    margin-left: auto;
+}
+
+.footer {
+    margin-top: 30px;
+    background-color: #C60000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    width: 2000px;
+    height: 100px;
+}
+
+.rrss {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.pfooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.rojo {
+    color: red;
+}
+
+
+
+.trending-products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    padding-top: 200px;
+}
+
+.contenido-container{
+    box-shadow: rgb(104, 104, 104) 10px 10px 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.detail-header{
+    display: flex;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-top: 3px solid black;
+    width: 411px;
+    height: 446px;
+    justify-content: center;
+    align-items: center;
+    
+}
+.detail-container{
+    display: flex;
+    border: 3px solid black;
+    width: 411px;
+    height: 298px;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.detail-container p{
+    font-family: 'Kalam';
+    font-size: 36px;
+}
+
+.detail-container .precio{
+    font-family: 'Kalam';
+    color: #0D9B7E;
+    font-size: 96px;
+}
+
+.likes{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center ;
+    margin-left: auto;
+    margin-top: auto;
+}
+
+.likes p{
+    font-family: 'Kalam';
+    color: #d10034;
+    font-size: 30px;
+}
+
+.img-like{
+    width: 75px;
+    height: 75px;
+}
+
+.img-product{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    z-index: 0;  
+}
+
+/* Z- index se utiliza para establecer que elementos se superponen a otros */

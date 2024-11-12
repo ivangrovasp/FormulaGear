@@ -85,6 +85,18 @@ Class Producto{
     {
         $this->numeroLikesProducto = $numeroLikesProducto;
     }
+
+    static function getProducstMostLiked(){
+        try {
+            $conn = getDBConnection();
+            $query = $conn->prepare("SELECT * FROM `producto` ORDER BY `numeroLikesProducto` DESC LIMIT 3;");
+            $query->execute();
+            $res = $query->fetchAll(PDO::FETCH_ASSOC);
+            return  $res;
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+    }
 }
 
 ?>

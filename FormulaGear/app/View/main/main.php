@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Sesion.php";
+$sesion = new Sesion();
+$user = $sesion->obtenerVariableSesion("usuario");
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,12 +27,12 @@
             <ul class="nav-links">
                 <li><a href="#">Whislist</a></li>
                 <li><a href="#">Productos</a></li>
-                <li><a href="../perfil/perfil.html">Perfil</a></li>
-                <li><a href="../main/main.html">Inicio</a></li>
+                <li><a href="../perfil/perfil.php">Perfil</a></li>
+                <li><a href="../main/main.php">Inicio</a></li>
                 <div class="perfil-image">
-                    <a href="../login/login.html">
+                    <a href="../perfil/perfil.php">
                         <img id="persona-image" src="../../../Imagenes/perfil.png">
-                        <p>Usuario</p>
+                        <p><?= $user['nombreUsuario'] ?></p>
                     </a>
                 </div>
 

@@ -27,8 +27,8 @@ $user = $sesion->obtenerVariableSesion("usuario");
             <ul class="nav-links">
                 <li><a href="#">Whislist</a></li>
                 <li><a href="#">Productos</a></li>
-                <li><a href="#">Perfil</a></li>
-                <li><a href="../main/main.html">Inicio</a></li>
+                <li><a href="../perfil/perfil.php">Perfil</a></li>
+                <li><a href="../main/main.php">Inicio</a></li>
                 <div class="perfil-image">
                     <a href="../login/login.html">
                         <img id="persona-image" src="../../../Imagenes/perfil.png">

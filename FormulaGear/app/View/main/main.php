@@ -2,9 +2,15 @@
 <html lang="en">
 <?php
 require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Sesion.php";
+require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/ProductoController.php";
+
 $sesion = new Sesion();
 $user = $sesion->obtenerVariableSesion("usuario");
+
+$productsController = new ProductoController();
+$productsMostLiked  = $productsController->MostLiked();
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,8 +31,8 @@ $user = $sesion->obtenerVariableSesion("usuario");
 
         <nav>
             <ul class="nav-links">
-                <li><a href="#">Whislist</a></li>
-                <li><a href="#">Productos</a></li>
+                <li><a href="#">Favoritos</a></li>
+                <li><a href="../productos/productos.php">Productos</a></li>
                 <li><a href="../perfil/perfil.php">Perfil</a></li>
                 <li><a href="../main/main.php">Inicio</a></li>
                 <div class="perfil-image">
@@ -64,42 +70,67 @@ $user = $sesion->obtenerVariableSesion("usuario");
     <div class="trending-products">
         <div class="contenido-container">
             <div class="detail-header">
-                <img class="img-product" src="../../../Imagenes/camisetaAstonMartin.png">
+                <img class="img-product" src="<?=$productsMostLiked[0]['imagenProducto']?>">
                 <div class="likes">
-                    <p>likes</p>
+                    <p><?php
+                        echo $productsMostLiked[0]['numeroLikesProducto']
+                    ?></p>
                     <img class="img-like" src="../../../Imagenes/corazon.png">
                 </div>
             </div>
             <div class="detail-container">
-                <p>Nombre</p>
-                <p class="precio">Precio</p>
+                <p><?php
+                    echo $productsMostLiked[0]['nombreProducto']
+                ?></p>
+                <p class="precio">
+                <?php
+                    echo $productsMostLiked[0]['precioProducto'] . "€"
+                ?>
+                </p>
             </div>
         </div>
         <div class="contenido-container">
             <div class="detail-header">
-                <img class="img-product" src="../../../Imagenes/camisetaAstonMartin.png">
+                <img class="img-product" src="<?=$productsMostLiked[1]['imagenProducto']?>">
                 <div class="likes">
-                    <p>likes</p>
+                    <p><?php
+                        echo $productsMostLiked[1]['numeroLikesProducto']
+                    ?></p>
                     <img class="img-like" src="../../../Imagenes/corazon.png">
                 </div>
             </div>
             <div class="detail-container">
-                <p>Nombre</p>
-                <p class="precio">Precio</p>
+                <p><?php
+                    echo $productsMostLiked[1]['nombreProducto']
+                ?></p>
+                <p class="precio">
+                <?php
+                    echo $productsMostLiked[1]['precioProducto'] . "€"
+                ?>
+                </p>
             </div>
         </div>
         <div class="contenido-container">
             <div class="detail-header">
-                <img class="img-product" src="../../../Imagenes/camisetaAstonMartin.png">
+                <img class="img-product" src="<?=$productsMostLiked[2]['imagenProducto']?>">
                 <div class="likes">
-                    <p>likes</p>
+                    <p><?php
+                        echo $productsMostLiked[2]['numeroLikesProducto']
+                    ?></p>
                     <img class="img-like" src="../../../Imagenes/corazon.png">
                 </div>
             </div>
             <div class="detail-container">
-                <p>Nombre</p>
-                <p class="precio">Precio</p>
+                <p><?php
+                    echo $productsMostLiked[2]['nombreProducto']
+                ?></p>
+                <p class="precio">
+                <?php
+                    echo $productsMostLiked[2]['precioProducto'] . "€"
+                ?>
+                </p>
             </div>
+        </div>
         </div>
     </div>
 

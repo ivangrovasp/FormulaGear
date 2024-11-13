@@ -10,7 +10,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="perfil.css">
-    <title>Document</title>
+    <title>Mi Perfil</title>
 </head>
 
 <body>
@@ -26,7 +26,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
         <nav>
             <ul class="nav-links">
                 <li><a href="#">Favoritos</a></li>
-                <li><a href="#">Productos</a></li>
+                <li><a href="../productos/productos.php">Productos</a></li>
                 <li><a href="../perfil/perfil.php">Perfil</a></li>
                 <li><a href="../main/main.php">Inicio</a></li>
                 <div class="perfil-image">

@@ -15,7 +15,7 @@ $productsMostLiked  = $productsController->MostLiked();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FormulaGear</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="/app/View/main/main.css">
 </head>
 
 <body>

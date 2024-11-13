@@ -9,7 +9,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="/app/View/perfil/perfil.css">
     <title>Mi Perfil</title>
 </head>
 
@@ -30,7 +30,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
                 <li><a href="../perfil/perfil.php">Perfil</a></li>
                 <li><a href="../main/main.php">Inicio</a></li>
                 <div class="perfil-image">
-                    <a href="../login/login.html">
+                    <a href="../perfil/perfil.php">
                         <img id="persona-image" src="../../../Imagenes/perfil.png">
                         <p><?= $user['nombreUsuario'] ?></p>
                     </a>
@@ -103,7 +103,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
     function cerrarSesion($session)
     {
         $session->eliminarVariableSesion('usuario');
-        header("Location: /FormulaGear/FormulaGear/app/View/login/login.html");
+        header("Location: /app/View/login/login.html");
     }
     ?>
 </body>

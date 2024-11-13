@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $llamadaLoginController = $usuariosController->getLogin($correoFiltrado, $contraseñaFiltrada);
 
         if ($llamadaLoginController == "Inicio de sesión exitoso"){
-            header("Location: /FormulaGear/FormulaGear/app/View/main/main.php");
+            header("Location: /app/View/main/main.php");
         }else{
             echo "No hay ningún usuario registrado con ese email";
         }

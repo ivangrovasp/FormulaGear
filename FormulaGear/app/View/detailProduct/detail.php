@@ -30,7 +30,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
                 <li><a href="../perfil/perfil.php">Perfil</a></li>
                 <li><a href="../main/main.php">Inicio</a></li>
                 <div class="perfil-image">
-                    <a href="../login/login.html">
+                    <a href="../perfil/perfil.php">
                         <img id="persona-image" src="../../../Imagenes/perfil.png">
                         <p><?= $user['nombreUsuario'] ?></p>
                     </a>

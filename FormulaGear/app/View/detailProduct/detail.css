@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap');
 body{
     margin-left: 0;
     margin-right: 0;
@@ -98,84 +98,112 @@ p {
  .header-container nav{
     margin-left: auto;
  }
-/*-------------------------------------------------------------------------------------------------------*/
-.contenido-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 70vh;
-}
-.formulario-container{
-    display: flex;
-    border: 3px solid black;
-    width: 600px;
-    height: 500px;
-    justify-content: center;
-    align-items: center;
-}
-
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 30px;
-    width: 550px;
-}
-
-input{
-    width: 500px;
-    height: 45px;
-    border: 2px solid black;
-    background-color: rgb(223, 221, 221);
-}
-
-#submit{
-    width: 250px;
+ /*-----------------------------------------------------------------------------------------------------------------------------------*/
+ .content-container{
     margin: auto;
-    background-color: #1E1E1E;
-    color: white;
+    margin-top: 75px;
+    font-family: Kalam;
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    width: 900px;
+    border: solid 3px black;
+    justify-content: center;
+    align-items: center;
 }
-/*-----------------------------------------------------------------------------------------------------------------------------------*/
-#divPerfil{
-    margin-top:-550px;
-    margin-left: 150px;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
+.img2-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 450px;
 }
-#fotoPerfil{
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
+.imgProduct{
+    height: 400px;
+    width: 400px;
+    position: absolute;
 }
-#nombreUsuario{
-    width: 175px;
-    height: 45px;
-    margin-top: 20px;
-    margin-left: 210px;
-    text-align: center;
+.likes{
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center ;
+    margin-left: auto;
+    margin-top: auto;
 }
-p{
+.likes p{
     font-family: 'Kalam';
+    color: #d10034;
+    font-size: 35px;
 }
-#botonSesion{
+.img-like{
+    width: 75px;
+    height: 75px;
+}
+.text-container{
+    font-size: 20px;
+    height: 480px;
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+    row-gap: 20px;
+    border-left: black solid 3px;
+    padding: 10px;
+}
+#title{
+    font-size: 30px;
+}
+.talla{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(223, 221, 221);
+    width: 150px;
+    height: 100px;
+    column-gap: 20px;
+    font-size: 25px;
+}
+select{
+    background-color: rgb(223, 221, 221);
+    font-family: 'Kalam';
+    border: none;
+    font-size: 25px;
+}
+.precio{
+    color: #0D9B7E;
+    font-size: 75px;
+    margin-bottom: -15px;
+}
+#fav{
+    color:dodgerblue;
+    font-size: 25px;
+}
+#botonComprar{
     width: 175px;
     height: 45px;
     background-color: #1E1E1E;
-    margin-top: 20px;
-    margin-left: 210px;  
+    margin: auto;
+    margin-top: 35px;
 }
 button{
-    width: 175px;
-    height: 45px;
+    width: 250px;
+    height: 75px;
     background-color: #1E1E1E;
     color: white;
-}  
-/*-----------------------------------------------------------------------------------------------------------------------------------*/
-.footer {
-    margin-top: 130px;
+    font-size: 50px;
+    font-family: Kalam;
+    text-align: center;
+} 
+ /*-----------------------------------------------------------------------------------------------------------------------------------*/
+ .footer {
+    margin-top: 75px;
     margin-bottom: 0px;
     background-color: #C60000;
     color: white;
@@ -204,4 +232,3 @@ button{
     justify-content: center;
     align-items: center;
 }
-

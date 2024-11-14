@@ -44,6 +44,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
 
     <div class="contenido-container">
         <div class="formulario-container">
+            <p>Modificar Perfil</p>
             <form action="perfil.php" method="post">
                 <input type="text" name="nombre" placeholder="Nombre de usuario" required value="<?= $user['nombreUsuario'] ?>">
                 <input type="email" name="email" placeholder="Email" required value="<?= $user['correoUsuario'] ?>">

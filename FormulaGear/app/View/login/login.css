@@ -66,11 +66,24 @@ body{
 }
 .formulario-container{
     display: flex;
+    flex-direction: column;
     border: 3px solid black;
     width: 400px;
     height: 300px;
     justify-content: center;
     align-items: center;
+}
+
+.formulario-container p{
+    font-size: 30px;
+    font-family: 'Kalam';
+    margin-bottom: 20px;
+}
+
+.formulario-container a{
+    margin-top: 20px;
+    color: black;
+    margin-bottom: 30px;
 }
 
 form{

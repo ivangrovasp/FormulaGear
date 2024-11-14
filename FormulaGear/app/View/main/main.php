@@ -68,70 +68,27 @@ $productsMostLiked  = $productsController->MostLiked();
     </div>
 
     <div class="trending-products">
-        <div class="contenido-container">
-            <div class="detail-header">
-                <img class="img-product" src="<?=$productsMostLiked[0]['imagenProducto']?>">
-                <div class="likes">
-                    <p><?php
-                        echo $productsMostLiked[0]['numeroLikesProducto']
-                    ?></p>
-                    <img class="img-like" src="../../../Imagenes/corazon.png">
+        <?php
+        for ($i = 0; $i < count($productsMostLiked); $i++) {
+            
+        ?>
+            <div class="contenido-container">
+                <div class="detail-header">
+                    <img class="img-product" src="<?= $productsMostLiked[$i]['imagenProducto'] ?>">
+                    <div class="likes">
+                        <p><?= $productsMostLiked[$i]['numeroLikesProducto'] ?></p>
+                        <img class="img-like" src="../../../Imagenes/corazon.png">
+                    </div>
+                </div>
+                <div class="detail-container">
+                    <p><?= $productsMostLiked[$i]['nombreProducto'] ?></p>
+                    <p class="precio"><?= $productsMostLiked[$i]['precioProducto'] ?>€</p>
                 </div>
             </div>
-            <div class="detail-container">
-                <p><?php
-                    echo $productsMostLiked[0]['nombreProducto']
-                ?></p>
-                <p class="precio">
-                <?php
-                    echo $productsMostLiked[0]['precioProducto'] . "€"
-                ?>
-                </p>
-            </div>
-        </div>
-        <div class="contenido-container">
-            <div class="detail-header">
-                <img class="img-product" src="<?=$productsMostLiked[1]['imagenProducto']?>">
-                <div class="likes">
-                    <p><?php
-                        echo $productsMostLiked[1]['numeroLikesProducto']
-                    ?></p>
-                    <img class="img-like" src="../../../Imagenes/corazon.png">
-                </div>
-            </div>
-            <div class="detail-container">
-                <p><?php
-                    echo $productsMostLiked[1]['nombreProducto']
-                ?></p>
-                <p class="precio">
-                <?php
-                    echo $productsMostLiked[1]['precioProducto'] . "€"
-                ?>
-                </p>
-            </div>
-        </div>
-        <div class="contenido-container">
-            <div class="detail-header">
-                <img class="img-product" src="<?=$productsMostLiked[2]['imagenProducto']?>">
-                <div class="likes">
-                    <p><?php
-                        echo $productsMostLiked[2]['numeroLikesProducto']
-                    ?></p>
-                    <img class="img-like" src="../../../Imagenes/corazon.png">
-                </div>
-            </div>
-            <div class="detail-container">
-                <p><?php
-                    echo $productsMostLiked[2]['nombreProducto']
-                ?></p>
-                <p class="precio">
-                <?php
-                    echo $productsMostLiked[2]['precioProducto'] . "€"
-                ?>
-                </p>
-            </div>
-        </div>
-        </div>
+        <?php
+        }
+        ?>
+
     </div>
 
     <div class="footer">

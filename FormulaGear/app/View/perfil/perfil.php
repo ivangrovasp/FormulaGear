@@ -104,7 +104,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
     function cerrarSesion($session)
     {
         $session->eliminarVariableSesion('usuario');
-        header("Location: /app/View/login/login.html");
+        header("Location: /app/View/login/login.php");
     }
     ?>
 </body>

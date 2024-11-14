@@ -46,27 +46,27 @@ $products = $productController->getAllProducts();
     </header>
 
 
-    <div class="trending-products">
-        <?php
-        for ($i = 0; $i < count($products); $i++) {
-            
-        ?>
-            <div class="contenido-container">
-                <div class="detail-header">
-                    <img class="img-product" src="<?= $products[$i]['imagenProducto'] ?>">
-                    <div class="likes">
-                        <p><?= $products[$i]['numeroLikesProducto'] ?></p>
-                        <img class="img-like" src="../../../Imagenes/corazon.png">
+        <div class="trending-products">
+            <?php
+            for ($i = 0; $i < count($products); $i++) {
+                $product_id = $products[$i]['idProducto'];
+            ?>
+                <a href="../detailProduct/detail.php?id=<?=$product_id?>" class="contenido-container">
+                    <div class="detail-header">
+                        <img class="img-product" src="<?= $products[$i]['imagenProducto'] ?>">
+                        <div class="likes">
+                            <p><?= $products[$i]['numeroLikesProducto'] ?></p>
+                            <img class="img-like" src="../../../Imagenes/corazon.png">
+                        </div>
                     </div>
-                </div>
-                <div class="detail-container">
-                    <p><?= $products[$i]['nombreProducto'] ?></p>
-                    <p class="precio"><?= $products[$i]['precioProducto'] ?>€</p>
-                </div>
-            </div>
-        <?php
-        }
-        ?>
+                    <div class="detail-container">
+                        <p><?= $products[$i]['nombreProducto'] ?></p>
+                        <p class="precio"><?= $products[$i]['precioProducto'] ?>€</p>
+                    </div>
+                </a>
+            <?php
+            }
+            ?>
 
     </div>
     <div style="padding-top : 700px"></div>

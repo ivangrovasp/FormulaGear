@@ -66,7 +66,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
     </div>
     <!------------------------------------------------------------------------------------------------------------->
     <div class="footer">
-        <p>Contacto: </p>
+        <p id="contactFooter">Contacto: </p>
         <div class="footer-content">
             <p class="pfooter"><img class="rrss" src="../../../Imagenes/gmail.png">FormulaGear@gmail.com</p>
             <p class="pfooter"><img class="rrss" src="../../../Imagenes/twitter.png">FormulaGear</p>

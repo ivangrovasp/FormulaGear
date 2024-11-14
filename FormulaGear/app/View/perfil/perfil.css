@@ -197,11 +197,16 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Kadwa';
 }
 
 .footer-content {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#contactFooter{
+    font-family: 'Kadwa';
 }
 

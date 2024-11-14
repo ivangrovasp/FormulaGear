@@ -70,9 +70,9 @@ $productsMostLiked  = $productsController->MostLiked();
     <div class="trending-products">
         <?php
         for ($i = 0; $i < count($productsMostLiked); $i++) {
-            
+            $product_id = $productsMostLiked[$i]['idProducto'];
         ?>
-            <div class="contenido-container">
+            <a href="../detailProduct/detail.php?id=<?=$product_id?>" class="contenido-container">
                 <div class="detail-header">
                     <img class="img-product" src="<?= $productsMostLiked[$i]['imagenProducto'] ?>">
                     <div class="likes">
@@ -84,11 +84,10 @@ $productsMostLiked  = $productsController->MostLiked();
                     <p><?= $productsMostLiked[$i]['nombreProducto'] ?></p>
                     <p class="precio"><?= $productsMostLiked[$i]['precioProducto'] ?>€</p>
                 </div>
-            </div>
+            </a>
         <?php
         }
         ?>
-
     </div>
 
     <div class="footer">

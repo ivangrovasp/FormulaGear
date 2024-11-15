@@ -152,13 +152,15 @@ p {
     gap: 100px;
     padding-top: 200px;
 }
-
+ 
 .contenido-container{
     box-shadow: rgb(104, 104, 104) 10px 10px 10px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-decoration: none;
+    color:black
 }
 
 .detail-header{

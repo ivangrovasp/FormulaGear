@@ -2,7 +2,12 @@
 <html lang="en">
 <?php
 require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Sesion.php";
+require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/ProductoController.php";
 $sesion = new Sesion();
+$productController = new ProductoController();
+$product_id = $_GET['id'];
+
+$detailProducts = $productController->getProductByID($product_id);
 $user = $sesion->obtenerVariableSesion("usuario");
 ?>
 
@@ -42,24 +47,29 @@ $user = $sesion->obtenerVariableSesion("usuario");
         
 <div class="content-container">
     <div class="img2-container">
-        <img src="../../../Imagenes/camisetaAstonMartin.png" alt="camisetaAston" class="imgProduct">
+        <img src="<?= $detailProducts[0]['imagenProducto']?>" alt="camisetaAston" class="imgProduct">
         <div class="likes">
-            <p>likes</p>
+            <p><?= $detailProducts[0]['numeroLikesProducto']?></p>
             <img class="img-like" src="../../../Imagenes/corazon.png">
         </div>
     </div>
     <div class="text-container">
-        <p id="title">Camiseta Aston Martin</p>
-        <p>¡¡Muestrales el Verde!! <br>Estas camisetas están disponibles en diferentes  tallas, permitiendo a los fanáticos de Aston Martin mostrar su orgullo y pasión por el equipo de manera elegante y auténtica.</p>
+        <p id="title"><?= $detailProducts[0]['nombreProducto']?></p>
+        <p><?= $detailProducts[0]['descripcionProducto']?></p>
         <div class="talla">
             <p>Tallas:</p>
             <select>
-                <option value="X">X</option>
-                <option value="S">S</option>
-                <option value="L">L</option>
+            <?php
+            for ($i = 0; $i < count($detailProducts); $i++) {
+                $tallaId = $detailProducts[$i]['nombreTalla'];
+            ?>
+                <option><?=$tallaId?></option>
+            <?php
+            }
+            ?>
             </select>
         </div>
-        <p class="precio">69,99€</p>
+        <p class="precio"><?= $detailProducts[0]['precioProducto'] . "€"?></p>
         <p id="fav">Añadir a favoritos</p>
     </div>
 </div>

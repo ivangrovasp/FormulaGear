@@ -108,11 +108,17 @@ p {
 }
 .formulario-container{
     display: flex;
+    flex-direction: column;
     border: 3px solid black;
     width: 600px;
     height: 500px;
     justify-content: center;
     align-items: center;
+}
+
+.formulario-container p{
+    font-size: 30px;
+    margin-bottom: 30px;
 }
 
 form{
@@ -197,11 +203,16 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Kadwa';
 }
 
 .footer-content {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#contactFooter{
+    font-family: 'Kadwa';
 }
 

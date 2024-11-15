@@ -1,5 +1,6 @@
 <?php
 require_once 'C:/xampp/htdocs/FormulaGear/FormulaGear/config/dbConnection.php';
+require_once 'C:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Talla.php';
 
 Class Producto{
     private $idProducto;
@@ -102,6 +103,19 @@ Class Producto{
         try {
             $conn = getDBConnection();
             $query = $conn->prepare("SELECT * FROM `producto`");
+            $query->execute();
+            $res = $query->fetchAll(PDO::FETCH_ASSOC);
+            return  $res;
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+    }
+
+    public static function getDetailProductByID($idProducto){
+        try {
+            $conn = getDBConnection();
+            $query = $conn->prepare("SELECT * FROM `producto`p INNER JOIN `talla`t ON p.`idProducto` = t.`idProducto` WHERE p.`idProducto` = ?");
+            $query->bindParam(1, $idProducto);
             $query->execute();
             $res = $query->fetchAll(PDO::FETCH_ASSOC);
             return  $res;

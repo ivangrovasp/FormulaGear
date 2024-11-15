@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['terminos-condiciones']
     if (filter_var($correoFiltrado, FILTER_VALIDATE_EMAIL)) {
         $userController = new UsuarioController();
         if ($userController->crearUsuario($nombreFiltrado, $correoFiltrado, $passFiltrada)) {
-            header("Location: /FormulaGear/FormulaGear/app/View/main/main.html");
+            header("Location: /app/View/main/main.php");
         } else {
             echo "Correo en uso";
         }

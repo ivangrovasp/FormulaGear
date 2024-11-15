@@ -37,4 +37,9 @@ class UsuarioController {
         $newUser->updateUser($newUser);
     }
 
+    public function getUser($correoFiltrado){
+        $user = new Usuario(0,'',$correoFiltrado,false,'');
+        return $user->getUser($user);
+    }
+
 }

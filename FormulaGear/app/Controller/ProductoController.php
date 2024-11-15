@@ -15,4 +15,8 @@ class ProductoController{
     }
         
     
+    public function updateProductLikes($idProducto) {
+        return Producto::updateProductLike($idProducto);
+    }
+    
 }

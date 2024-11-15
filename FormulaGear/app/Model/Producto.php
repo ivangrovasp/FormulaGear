@@ -123,6 +123,19 @@ Class Producto{
             echo "ERROR: " . $e->getMessage();
         }
     }
+
+    public static function updateProductLike($idProducto){
+        try {
+            $conn = getDBConnection();
+            $query = $conn->prepare("UPDATE `producto` SET `numeroLikesProducto` = `numeroLikesProducto` +1 WHERE `idProducto` = ?");
+            $query->bindParam(1, $idProducto);
+            $query->execute();
+            $res = $query->fetchAll(PDO::FETCH_ASSOC);
+            return  $res;
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+    }
 }
 
 ?>

@@ -31,7 +31,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
         <nav>
             <ul class="nav-links">
                 <li><a href="#">Whislist</a></li>
-                <li><a href="#">Productos</a></li>
+                <li><a href="../productos/productos.php">Productos</a></li>
                 <li><a href="../perfil/perfil.php">Perfil</a></li>
                 <li><a href="../main/main.php">Inicio</a></li>
                 <div class="perfil-image">
@@ -44,48 +44,56 @@ $user = $sesion->obtenerVariableSesion("usuario");
             </ul>
         </nav>
     </header>
-        
-<div class="content-container">
-    <div class="img2-container">
-        <img src="<?= $detailProducts[0]['imagenProducto']?>" alt="camisetaAston" class="imgProduct">
-        <div class="likes">
-            <p><?= $detailProducts[0]['numeroLikesProducto']?></p>
-            <img class="img-like" src="../../../Imagenes/corazon.png">
+
+    <div class="content-container">
+        <div class="img2-container"> <img src="<?= htmlspecialchars($detailProducts[0]['imagenProducto']) ?>" alt="camisetaAston" class="imgProduct">
+            <form action="detail.php?id=<?= htmlspecialchars($product_id) ?>" method="post" class="likes2">
+                <button type="submit" name="like" class="likes2" id="buttonLike">
+                    <p><?= htmlspecialchars($detailProducts[0]['numeroLikesProducto']) ?></p> 
+                    <img class="img-like" src="../../../Imagenes/corazon.png">
+                </button>
+            </form>
+        </div>
+        <div class="text-container">
+            <p id="title"><?= $detailProducts[0]['nombreProducto'] ?></p>
+            <p><?= $detailProducts[0]['descripcionProducto'] ?></p>
+            <div class="talla">
+                <p>Tallas:</p>
+                <select>
+                    <?php
+                    for ($i = 0; $i < count($detailProducts); $i++) {
+                        $tallaId = $detailProducts[$i]['nombreTalla'];
+                    ?>
+                        <option><?= $tallaId ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
+            <p class="precio"><?= $detailProducts[0]['precioProducto'] . "€" ?></p>
+            <p id="fav">Añadir a favoritos</p>
         </div>
     </div>
-    <div class="text-container">
-        <p id="title"><?= $detailProducts[0]['nombreProducto']?></p>
-        <p><?= $detailProducts[0]['descripcionProducto']?></p>
-        <div class="talla">
-            <p>Tallas:</p>
-            <select>
-            <?php
-            for ($i = 0; $i < count($detailProducts); $i++) {
-                $tallaId = $detailProducts[$i]['nombreTalla'];
-            ?>
-                <option><?=$tallaId?></option>
-            <?php
-            }
-            ?>
-            </select>
+
+    <div id="botonComprar">
+        <a href=""><button>Comprar</button></a>
+    </div>
+
+    <div class="footer">
+        <p>Contacto: </p>
+        <div class="footer-content">
+            <p class="pfooter"><img class="rrss" src="../../../Imagenes/gmail.png">FormulaGear@gmail.com</p>
+            <p class="pfooter"><img class="rrss" src="../../../Imagenes/twitter.png">FormulaGear</p>
+            <p class="pfooter"><img class="rrss" src="../../../Imagenes/instagram.png">FormulaGear</p>
         </div>
-        <p class="precio"><?= $detailProducts[0]['precioProducto'] . "€"?></p>
-        <p id="fav">Añadir a favoritos</p>
     </div>
-</div>
 
-<div id="botonComprar">
-    <a href=""><button>Comprar</button></a>
-</div>
-
-<div class="footer">
-    <p>Contacto: </p>
-    <div class="footer-content">
-        <p class="pfooter"><img class="rrss" src="../../../Imagenes/gmail.png">FormulaGear@gmail.com</p>
-        <p class="pfooter"><img class="rrss" src="../../../Imagenes/twitter.png">FormulaGear</p>
-        <p class="pfooter"><img class="rrss" src="../../../Imagenes/instagram.png">FormulaGear</p>
-    </div>
-</div>
+    <?php if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['like'])) {
+        $productController->updateProductLikes($product_id);
+        // Redirige para evitar reenvío del formulario al recargar la página
+        header("Location: detail.php?id=" . $product_id);
+        exit();
+    } ?>
 
 </body>
 

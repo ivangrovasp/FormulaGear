@@ -124,7 +124,9 @@ p {
     width: 300px;
     position: absolute;
 }
-.likes{
+
+
+.likes2{
     width: 75px;
     height: 75px;
     display: flex;
@@ -134,8 +136,10 @@ p {
     margin-left: auto;
     margin-top: auto;
     z-index: 1;
+    text-decoration: none;
+    color:black
 }
-.likes p{
+.likes2 p{
     font-family: 'Kalam';
     color: #d10034;
     font-size: 35px;
@@ -232,4 +236,9 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#buttonLike{
+    background-color: white;
+    border: white;
 }

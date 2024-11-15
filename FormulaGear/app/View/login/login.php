@@ -7,7 +7,12 @@ require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Sesion.php";
 $sesion = new Sesion();
 $user = $sesion->obtenerVariableSesion("usuario");
 if($user != null){
-    header("Location: /app/View/main/main.php");
+    if($user['permisosUsuario']){
+        header("Location: /app/View/admin/admin.php");
+    }else{
+        header("Location: /app/View/main/main.php");
+    }
+    
 }
 ?>
 <head>
@@ -56,7 +61,12 @@ if($user != null){
                 $llamadaLoginController = $usuariosController->getLogin($correoFiltrado, $contraseñaFiltrada);
 
                 if ($llamadaLoginController == "Inicio de sesión exitoso") {
-                    header("Location: /app/View/main/main.php");
+                    $usuario = $usuariosController->getUser($correoFiltrado);
+                    if($usuario[0]['permisosUsuario']){
+                        header("Location: /app/View/admin/admin.php");
+                    }else{
+                        header("Location: /app/View/main/main.php");
+                    }
                 } else {
                     echo "No hay ningún usuario registrado con ese email";
                 }

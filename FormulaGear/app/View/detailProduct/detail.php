@@ -6,7 +6,6 @@ require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/ProductoCon
 $sesion = new Sesion();
 $productController = new ProductoController();
 $product_id = $_GET['id'];
-
 $detailProducts = $productController->getDetailProductByID($product_id);
 $user = $sesion->obtenerVariableSesion("usuario");
 ?>
@@ -30,7 +29,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#">Favoritos</a></li>
+                <li><a href="../favoritos/favorito.php">Favoritos</a></li>
                 <li><a href="../productos/productos.php">Productos</a></li>
                 <li><a href="../perfil/perfil.php">Perfil</a></li>
                 <li><a href="../main/main.php">Inicio</a></li>
@@ -60,7 +59,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
             <div class="talla">
                 <p>Tallas:</p>
                 <select>
-                    <?php
+                    <?php 
                     for ($i = 0; $i < count($detailProducts); $i++) {
                         $tallaId = $detailProducts[$i]['nombreTalla'];
                     ?>
@@ -71,7 +70,10 @@ $user = $sesion->obtenerVariableSesion("usuario");
                 </select>
             </div>
             <p class="precio"><?= $detailProducts[0]['precioProducto'] . "€" ?></p>
-            <p id="fav">Añadir a favoritos</p>
+            <form action="../detailProduct/detail.php" method="POST">
+                    <input type="text" name="form1" hidden>
+                    <input type="submit" id="fav" value="Añadir a favoritos">
+            </form>
         </div>
     </div>
 
@@ -88,13 +90,17 @@ $user = $sesion->obtenerVariableSesion("usuario");
         </div>
     </div>
 
-    <?php if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['like'])) {
+    <?php 
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['like'])) {
         $productController->updateProductLikes($product_id);
         // Redirige para evitar reenvío del formulario al recargar la página
         header("Location: detail.php?id=" . $product_id);
         exit();
-    } ?>
-
+    } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form1'])){
+         $sesion->iniciarVariableSesion('favoritos',$detailProducts[0]);
+    }
+    
+    ?>
 </body>
 
 </html>

@@ -18,10 +18,12 @@ class ProductoController{
         return Producto::getProductById($idProducto);
     }
     
-        
-    
     public function updateProductLikes($idProducto) {
         return Producto::updateProductLike($idProducto);
     }
-    
+            
+    public function añadirFavoritos($producto){
+        $sesion = new Sesion();
+        $sesion->iniciarVariableSesion("favoritos",$producto [0]);
+    }
 }

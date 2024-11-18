@@ -29,8 +29,8 @@ $products = $productController->getAllProducts();
 
         <nav>
             <ul class="nav-links">
-                <li><a href="#">Favoritos</a></li>
-                <li><a href="#">Productos</a></li>
+            <li><a href="../favoritos/favorito.php">Whislist</a></li>
+            <li><a href="../productos/productos.php">Productos</a></li>
                 <li><a href="../perfil/perfil.php">Perfil</a></li>
                 <li><a href="../main/main.php">Inicio</a></li>
                 <div class="perfil-image">

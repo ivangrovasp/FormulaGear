@@ -99,110 +99,86 @@ p {
     margin-left: auto;
  }
  /*-----------------------------------------------------------------------------------------------------------------------------------*/
- .content-container{
-    margin: auto;
-    margin-top: 75px;
-    font-family: Kalam;
+
+ .trending-products{
     display: flex;
-    flex-direction: row;
-    height: 500px;
-    width: 900px;
-    border: solid 3px black;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: 100px;
+    padding-top: 200px;
 }
-.img2-container{
+.contenido-container{
+    box-shadow: rgb(104, 104, 104) 10px 10px 10px 10px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    text-decoration: none;
+    color:black
+}
+
+.detail-header{
+    display: flex;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-top: 3px solid black;
+    width: 411px;
+    height: 446px;
     justify-content: center;
     align-items: center;
-    height: 500px;
-    width: 450px;
+    
 }
-.imgProduct{
-    height: 300px;
-    width: 300px;
-    position: absolute;
+.detail-container{
+    display: flex;
+    border: 3px solid black;
+    width: 411px;
+    height: 298px;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
 }
 
+.detail-container p{
+    font-family: 'Kalam';
+    font-size: 36px;
+}
 
-.likes2{
-    width: 75px;
-    height: 75px;
+.detail-container .precio{
+    font-family: 'Kalam';
+    color: #0D9B7E;
+    font-size: 96px;
+}
+
+.likes{
+    width: 100px;
+    height: 100px;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
     align-items: center ;
     margin-left: auto;
     margin-top: auto;
-    z-index: 1;
-    text-decoration: none;
-    color:black
 }
-.likes2 p{
+
+.likes p{
     font-family: 'Kalam';
     color: #d10034;
-    font-size: 35px;
+    font-size: 30px;
 }
+
 .img-like{
     width: 75px;
     height: 75px;
 }
-.text-container{
-    font-size: 20px;
-    height: 480px;
-    width: 550px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    column-gap: 30px;
-    row-gap: 20px;
-    border-left: black solid 3px;
-    padding: 10px;
+
+.img-product{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    z-index: -1;  
 }
-#title{
-    font-size: 30px;
-}
-.talla{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(223, 221, 221);
-    width: 150px;
-    height: 100px;
-    column-gap: 20px;
-    font-size: 25px;
-}
-select{
-    background-color: rgb(223, 221, 221);
-    font-family: 'Kalam';
-    border: none;
-    font-size: 25px;
-}
-.precio{
-    color: #0D9B7E;
-    font-size: 75px;
-    margin-bottom: -15px;
-}
-#fav{
-    color:dodgerblue;
-    font-size: 25px;
-    height: 50px;
-    width: 50px;
-    border: none;
-    background-color: none;
-}
-#botonComprar{
-    width: 250px;
-    height: 75px;
-    background-color: #1E1E1E;
-    color: white;
-    font-size: 50px;
-    font-family: Kalam;
-    text-align: center;
-}
+
  /*-----------------------------------------------------------------------------------------------------------------------------------*/
  .footer {
     margin-top: 75px;
@@ -233,9 +209,4 @@ select{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#buttonLike{
-    background-color: white;
-    border: white;
 }

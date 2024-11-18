@@ -2,7 +2,7 @@
 function getDBConnection(){
     $host = 'localhost';
     $db_name = 'FormulaGear';
-    $user = 'mathias';
+    $user = 'alberto';
     $pass = 'root';
 
     try {

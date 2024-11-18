@@ -18,18 +18,26 @@ INSERTAR TALLA
 */
 INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('XL',1);
 INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('L',1);
+INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('M',1);
+INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('S',1);
 INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('XL',2);
 INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('L',2);
+INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('M',2);
+INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('S',2);
 INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('XL',3);
 INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('L',3);
+INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('M',3);
+INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('S',3);
 INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('XL',4);
 INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('L',4);
+INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('M',4);
+INSERT INTO `talla`(`nombreTalla`,`idProducto`)VALUES('S',4);
 /*
 INSERTAR PRODUCTOS FAVORITOS
 */
 INSERT INTO `favorito`(`idUsuario`,`idProducto`)VALUES(1,1);
 INSERT INTO `favorito`(`idUsuario`,`idProducto`)VALUES(2,2);
 /*INSERTAR PEDIDO*/
-INSERT INTO `pedido`(`idUsuario`,`idProducto`)VALUES(2,5);
-INSERT INTO `pedido`(`idUsuario`,`idProducto`)VALUES(3,1);
-INSERT INTO `pedido`(`idUsuario`,`idProducto`)VALUES(4,2);
+INSERT INTO `pedido`(`idUsuario`,`idProducto`,`isLiked`)VALUES(2,5,0);
+INSERT INTO `pedido`(`idUsuario`,`idProducto`,`isLiked`)VALUES(3,1,0);
+INSERT INTO `pedido`(`idUsuario`,`idProducto`,`isLiked`)VALUES(4,2,0);

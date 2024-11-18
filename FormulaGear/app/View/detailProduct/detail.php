@@ -70,8 +70,8 @@ $user = $sesion->obtenerVariableSesion("usuario");
                 </select>
             </div>
             <p class="precio"><?= $detailProducts[0]['precioProducto'] . "€" ?></p>
-            <form action="../detailProduct/detail.php" method="POST">
-                    <input type="text" name="form1" hidden>
+            <form action="detail.php?id=<?= htmlspecialchars($product_id) ?>" method="POST">
+                    <input type="hidden" name="form1">
                     <input type="submit" id="fav" value="Añadir a favoritos">
             </form>
         </div>

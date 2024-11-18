@@ -10,9 +10,14 @@ class ProductoController{
         return Producto::getProducstMostLiked();
     }
 
-    public function getProductByID($idProducto) {
+    public function getDetailProductByID($idProducto) {
         return Producto::getDetailProductByID($idProducto);
     }
+
+    public function getProductByID($idProducto) {
+        return Producto::getProductById($idProducto);
+    }
+    
         
     
     public function updateProductLikes($idProducto) {

@@ -43,7 +43,8 @@ CREATE TABLE `favorito` (
 CREATE TABLE `pedido` (
   `idPedido` int(11) NOT NULL,
   `idUsuario` int(11) NOT NULL,
-  `idProducto` int(11) NOT NULL
+  `idProducto` int(11) NOT NULL,
+  `isLiked` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

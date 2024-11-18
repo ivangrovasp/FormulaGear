@@ -7,7 +7,7 @@ $sesion = new Sesion();
 $productController = new ProductoController();
 $product_id = $_GET['id'];
 
-$detailProducts = $productController->getProductByID($product_id);
+$detailProducts = $productController->getDetailProductByID($product_id);
 $user = $sesion->obtenerVariableSesion("usuario");
 ?>
 

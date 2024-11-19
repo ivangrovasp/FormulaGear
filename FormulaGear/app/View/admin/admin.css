@@ -156,6 +156,7 @@ p {
     grid-template-rows:repeat(6,40px);
     grid-template-areas:
     "nombreProducto nombreProducto nombreProducto nombreProducto"
+    "newNombreProducto newNombreProducto newNombreProducto newNombreProducto"
     "descripcionProducto descripcionProducto descripcionProducto descripcionProducto"
     "descripcionProducto descripcionProducto descripcionProducto descripcionProducto"
     "imagenProducto imagenProducto precioProducto talla"
@@ -178,33 +179,16 @@ p {
 .nombreProducto{
     grid-area: nombreProducto;
 }
+.newNombreProducto{
+    grid-area: newNombreProducto;
+}
 .descripcionProducto{
     grid-area: descripcionProducto;
 }
 .imagenProducto{
     grid-area: imagenProducto;
-    position: relative;
-    display: flex;
 }
-.imagenProducto::before{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    content: 'Seleccionar Imagen';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0
-}
-.imagenProducto input[type="file"]{
-    opacity: 0;
-    width: 244px;
-    height: 44px;
-    display: flex;
-    
-}
+
 .precioProducto{
     grid-area: precioProducto;
 }
@@ -224,6 +208,14 @@ p {
     width: 100%;
     height: 100%;
     background-color: transparent;
+    text-align: center;
+}
+.textNewNombreProducto{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: transparent;
+    border: none;
     text-align: center;
 }
 .style-inputs{

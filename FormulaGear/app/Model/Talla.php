@@ -1,7 +1,7 @@
 <?php
 require_once 'C:/xampp/htdocs/FormulaGear/FormulaGear/config/dbConnection.php';
 
-class Usuario {
+class Talla {
     private $idTalla;
     private $nombreTalla;
     private $idProducto;
@@ -28,6 +28,18 @@ class Usuario {
 
     public function setIdProducto($idProducto) {
         $this->idProducto = $idProducto;
+    }
+
+    public function addSize($nombreTalla, $idProducto){
+        try {
+            $conn = getDBConnection();
+            $query = $conn->prepare("INSERT INTO `talla`(`nombreTalla`, `idProducto`) VALUES (?,?)");
+            $query->bindParam(1, $nombreTalla);
+            $query->bindParam(2, $idProducto);
+            $query->execute();
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
     }
 }
 ?>

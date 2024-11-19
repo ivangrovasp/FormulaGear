@@ -172,22 +172,29 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `favorito`
 --
 ALTER TABLE `favorito`
-  ADD CONSTRAINT `fk_favorito_producto` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`),
-  ADD CONSTRAINT `fk_favorito_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
+  ADD CONSTRAINT `fk_favorito_producto` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`)
+  ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_favorito_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`)
+  ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `pedido`
 --
 ALTER TABLE `pedido`
   ADD CONSTRAINT `fk_producto` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`),
-  ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
+   ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`)
+   ON DELETE CASCADE;
 
 
 --
 -- Filtros para la tabla `talla`
 --
 ALTER TABLE `talla`
-  ADD CONSTRAINT `fk_producto_talla` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`);
+ADD CONSTRAINT `fk_producto_talla`
+FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`)
+ON DELETE CASCADE;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

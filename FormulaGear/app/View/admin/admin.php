@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+
 require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Sesion.php";
 require_once '../../Controller/ProductoController.php';
 $sesion = new Sesion();
+$sesion->iniciarVariableSesion('selectedIndex',-1);
 $user = $sesion->obtenerVariableSesion("usuario");
 $productController = new ProductoController();
 $products = $productController->getAllProducts();
@@ -47,10 +49,11 @@ $products = $productController->getAllProducts();
 
             require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/ProductoController.php";
 
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cargar'])) {
                 //Obtenemos el producto junto con las tallas
                 $producto = new ProductoController();
-                $producto = $producto->getProductByID($products[$i]['idProducto']);
+                //Esta línea se supone que era para obtener el producto junto con sus tallas para mostarlas en el select de tallas
+                $product;
             ?>
                 <div class="gridarea nombreProducto">
 
@@ -61,40 +64,74 @@ $products = $productController->getAllProducts();
                              Se le resta uno ya que las opciones del select empiezan en 1 no en 0. En este caso queremos usar la opción seleccionada
                              como índice para encontrar el producto seleccionado.
                             */
-                            if ($products[$i]['idProducto'] == $products[$_POST['producto-seleccionado'] - 1]['idProducto']) {
+                            if ($products[$i]['idProducto'] == $_POST['producto-seleccionado']) {
+
+                        ?>
+                                <option value="<?= $products[$i]['idProducto'] ?>" selected>
+                                    <?= $products[$i]['nombreProducto'] ?>
+                                </option>
+                            <?php
+                                //Una vez encontramos el nombre del producto deseado, obtenemos la información de ese producto junto con sus tallas
+                                $product = $producto->getDetailProductByID($products[$i]['idProducto']);
                                 
-                                ?>
-                                    <option value="<?= $products[$i]['idProducto'] ?>"selected>
-                                        <?= $products[$i]['nombreProducto']?>
-                                    </option>
-                                <?php
-                            }else{
-                                ?>
-                                    <option value="<?= $products[$i]['idProducto'] ?>">
-                                        <?= $products[$i]['nombreProducto'] ?>
-                                    </option>
-                                <?php
+                                $_SESSION['selectedIndex']= $i;
+                            } else {
+                            ?>
+                                <option value="<?= $products[$i]['idProducto'] ?>">
+                                    <?= $products[$i]['nombreProducto'] ?>
+                                </option>
+                        <?php
                             }
                         }
                         ?>
                     </select>
 
                 </div>
+                <div class="gridarea newNombreProducto">
+                    <input type="text" placeholder="Nombre del nuevo producto" class="textNewNombreProducto" name="nuevoNombreProducto">
+                </div>
                 <div class="gridarea descripcionProducto">
                     <textarea name="descripcionProducto"
-                        placeholder="Descripción Producto" class="style-inputs"><?= $products[$_POST['producto-seleccionado'] - 1]['descripcionProducto'] ?></textarea>
+                        placeholder="Descripción Producto" class="style-inputs"><?= $products[$_SESSION['selectedIndex']]['descripcionProducto'] ?></textarea>
                 </div>
-                <!-- La ruta de la imagen del producto no se puede mostrar en el input file -->
                 <div class="gridarea imagenProducto">
-                    <input type="file" accept="image/png, image/jpeg" name="imagenProducto" class="style-inputs">
+                    <input type="text" name="imagenProducto" placeholder="Ruta de la Imagen" class="style-inputs" value="<?= $products[$_SESSION['selectedIndex']]['imagenProducto'] ?>">
                 </div>
-                <div class="gridarea precioProducto"><input type="number" name="precioProducto" class="style-inputs" value="<?= $products[$_POST['producto-seleccionado'] - 1]['precioProducto'] ?>"></div>
-                <div class="gridarea talla">Talla</div>
-                <div class="gridarea añadir"><input type="submit" value="Añadir" class="style-inputs"></div>
-                <div class="gridarea eliminar"><input type="submit" value="Eliminar" class="style-inputs"></div>
-                <div class="gridarea confirmar"><input type="submit" value="Confirmar" class="style-inputs"></div>
-                <div class="gridarea cargarProducto"><input type="submit" value="Cargar Producto" class="style-inputs"></div>
+                <div class="gridarea precioProducto"><input type="number" name="precioProducto" class="style-inputs" value="<?= $products[$_SESSION['selectedIndex']]['precioProducto'] ?>"></div>
+                <div class="gridarea talla">
+                    <select class="select-products">
+                        <?php
+                        //En este bucle recorremos el array con el producto seleccionado y sus diferentes tallas
+                        for ($i = 0; $i < count($product); $i++) {
+                        ?>
+                            <option><?= $product[$i]['nombreTalla'] ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="gridarea añadir"><input type="submit" name="añadir" value="Añadir" class="style-inputs"></div>
+                <div class="gridarea eliminar"><input type="submit" name="eliminar" value="Eliminar" class="style-inputs"></div>
+                <div class="gridarea confirmar"><input type="submit" name="confirmar" value="Confirmar" class="style-inputs"></div>
+                <div class="gridarea cargarProducto"><input type="submit" name="cargar" value="Cargar Producto" class="style-inputs"></div>
             <?php
+            } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['añadir'])) {
+                $productController->addProduct($_POST['nuevoNombreProducto'], $_POST['precioProducto'], $_POST['descripcionProducto'], $_POST['imagenProducto'], 0);
+                header("Location: admin.php");
+                exit();
+            } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['eliminar'])) {
+                $productController->deleteProduct($products[$_SESSION['selectedIndex']]['idProducto']);
+                header("Location: admin.php");
+                exit();
+            } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirmar'])) {
+                if($_POST['nuevoNombreProducto']!=''){
+                    $productController->updateProduct($products[$_SESSION['selectedIndex']]['idProducto'], $_POST['nuevoNombreProducto'], $_POST['precioProducto'], $_POST['descripcionProducto'], $_POST['imagenProducto']);
+                }else{
+                    $productController->updateProduct($products[$_SESSION['selectedIndex']]['idProducto'], $products[$_SESSION['selectedIndex']]['nombreProducto'], $_POST['precioProducto'], $_POST['descripcionProducto'], $_POST['imagenProducto']);
+                }
+                
+                header("Location: admin.php");
+                exit();
             } else {
             ?>
 
@@ -111,17 +148,20 @@ $products = $productController->getAllProducts();
                     </select>
 
                 </div>
+                <div class="gridarea newNombreProducto">
+                    <input type="text" placeholder="Nombre del nuevo producto" class="textNewNombreProducto" name="nuevoNombreProducto">
+                </div>
                 <div class="gridarea descripcionProducto"><textarea name="descripcionProducto"
                         placeholder="Descripción Producto" class="style-inputs"></textarea></div>
                 <div class="gridarea imagenProducto">
-                    <input type="file" accept="image/png, image/jpeg" name="imagenProducto" class="style-inputs">
+                    <input type="text" name="imagenProducto" placeholder="Ruta de la Imagen" class="style-inputs">
                 </div>
-                <div class="gridarea precioProducto"><input type="number" name="precioProducto" class="style-inputs"></div>
+                <div class="gridarea precioProducto"><input type="number" name="precioProducto" placeholder="Precio" class="style-inputs"></div>
                 <div class="gridarea talla">Talla</div>
-                <div class="gridarea añadir"><input type="submit" value="Añadir" class="style-inputs"></div>
-                <div class="gridarea eliminar"><input type="submit" value="Eliminar" class="style-inputs"></div>
-                <div class="gridarea confirmar"><input type="submit" value="Confirmar" class="style-inputs"></div>
-                <div class="gridarea cargarProducto"><input type="submit" value="Cargar Producto" class="style-inputs"></div>
+                <div class="gridarea añadir"><input type="submit" name="añadir" value="Añadir" class="style-inputs"></div>
+                <div class="gridarea eliminar"><input type="submit" name="eliminar" value="Eliminar" class="style-inputs"></div>
+                <div class="gridarea confirmar"><input type="submit" name="confirmar" value="Confirmar" class="style-inputs"></div>
+                <div class="gridarea cargarProducto"><input type="submit" name="cargar" value="Cargar Producto" class="style-inputs"></div>
             <?php
             }
             ?>

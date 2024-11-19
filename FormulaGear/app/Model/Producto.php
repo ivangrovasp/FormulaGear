@@ -148,6 +148,47 @@ Class Producto{
             echo "ERROR: " . $e->getMessage();
         }
     }
+    public function addProduct($nombreProducto,$precioProducto,$descripcionProducto,$imagenProducto,$numeroLikesProducto){
+        try {
+            $conn = getDBConnection();
+            $query = $conn->prepare("INSERT INTO `producto`(`nombreProducto`, `precioProducto`, `descripcionProducto`, `imagenProducto`, `numeroLikesProducto`) VALUES (?,?,?,?,?)");
+            $query->bindParam(1, $nombreProducto);
+            $query->bindParam(2, $precioProducto);
+            $query->bindParam(3, $descripcionProducto);
+            $query->bindParam(4, $imagenProducto);
+            $query->bindParam(5, $numeroLikesProducto);
+            $query->execute();
+            //Tras insertar el producto, devolvemos el id del último elemento insertado en la bd
+            return $conn->lastInsertId();
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+    }
+    public function deleteProduct($idProduct){
+        try {
+            $conn = getDBConnection();
+            $query = $conn->prepare("DELETE FROM `producto` WHERE `idProducto` = ?");
+            $query->bindParam(1, $idProduct);
+            $query->execute();
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+    }
+    public function updateProduct($idProducto,$nombreProducto,$precioProducto,$descripcionProducto,$imagenProducto){
+        try {
+            $conn = getDBConnection();
+            $query = $conn->prepare("UPDATE `producto` SET `nombreProducto`= ?,`precioProducto`=?,`descripcionProducto`=?,`imagenProducto`= ?WHERE `idProducto`=?");
+            
+            $query->bindParam(1, $nombreProducto);
+            $query->bindParam(2, $precioProducto);
+            $query->bindParam(3, $descripcionProducto);
+            $query->bindParam(4, $imagenProducto);
+            $query->bindParam(5, $idProducto);
+            $query->execute();
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+    }
 }
 
 ?>

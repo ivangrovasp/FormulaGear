@@ -78,7 +78,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
     </div>
 
     <div id="botonComprar">
-        <a href=""><button>Comprar</button></a>
+        <button>Comprar</button>
     </div>
 
     <div class="footer">
@@ -97,9 +97,15 @@ $user = $sesion->obtenerVariableSesion("usuario");
         header("Location: detail.php?id=" . $product_id);
         exit();
     } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form1'])){
-         $sesion->iniciarVariableSesion('favoritos',$detailProducts[0]);
+        if (isset($_SESSION['favoritos'])) {
+            array_push($_SESSION['favoritos'],$detailProducts[0]);
+         }else{
+           // $sesion->iniciarVariableSesion('favoritos',$detailProducts[0]);
+           $_SESSION['favoritos'] = [
+            0 => $detailProducts[0],
+            ];
+         }
     }
-    
     ?>
 </body>
 

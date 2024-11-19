@@ -106,7 +106,7 @@ p {
     justify-content: center;
     align-items: center;
     gap: 100px;
-    padding-top: 200px;
+    padding-top: 75px;
 }
 .contenido-container{
     box-shadow: rgb(104, 104, 104) 10px 10px 10px 10px;
@@ -181,7 +181,6 @@ p {
 
  /*-----------------------------------------------------------------------------------------------------------------------------------*/
  .footer {
-    margin-top: 75px;
     margin-bottom: 0px;
     background-color: #C60000;
     color: white;

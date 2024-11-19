@@ -178,9 +178,26 @@ p {
     height: 300px;
     z-index: -1;  
 }
+#botonComprar{
+    width: 175px;
+    height: 45px;
+    background-color: #1E1E1E;
+    margin: auto;
+    margin-top: 35px;
+}
+button{
+    width: 250px;
+    height: 75px;
+    background-color: #1E1E1E;
+    color: white;
+    font-size: 50px;
+    font-family: 'Kalam';
+    text-align: center;
+} 
 
  /*-----------------------------------------------------------------------------------------------------------------------------------*/
  .footer {
+    margin-top: 600px;
     margin-bottom: 0px;
     background-color: #C60000;
     color: white;

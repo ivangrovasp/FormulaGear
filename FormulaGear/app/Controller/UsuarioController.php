@@ -32,7 +32,7 @@ class UsuarioController {
     }
 
 
-    public function updateUser($idUsuario,$nombreUsuario, $correoUsuario,$permisosUsuario,$passUsuario){
+    public function updateUser($idUsuario,$nombreUsuario,$correoUsuario,$permisosUsuario,$passUsuario){
         $newUser = new Usuario($idUsuario,$nombreUsuario,$correoUsuario,$permisosUsuario,$passUsuario);
         $newUser->updateUser($newUser);
     }

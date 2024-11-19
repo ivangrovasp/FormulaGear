@@ -3,8 +3,10 @@
 <?php
 require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Sesion.php";
 require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/ProductoController.php";
+require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/FavoritoController.php";
 $sesion = new Sesion();
 $productController = new ProductoController();
+$favoritoController = new FavoritoController();
 $user = $sesion->obtenerVariableSesion("usuario");
 $products = $sesion->obtenerVariableSesion("favoritos");
 ?> 
@@ -28,7 +30,7 @@ $products = $sesion->obtenerVariableSesion("favoritos");
     </div>
     <nav>
         <ul class="nav-links">
-        <li><a href="../favoritos/favorito.php">Whislist</a></li>
+        <li><a href="../favoritos/favorito.php">Favoritos</a></li>
         <li><a href="../productos/productos.php">Productos</a></li>
             <li><a href="../perfil/perfil.php">Perfil</a></li>
             <li><a href="../main/main.php">Inicio</a></li>
@@ -65,7 +67,14 @@ $products = $sesion->obtenerVariableSesion("favoritos");
     }
     }
     ?>
-
+</div>
+<div id="botonComprar">
+        <button type="submit" name="guardar"> 
+            Guardar Lista
+            <?php
+                $favoritoController->favoritoUserId($user['idUsuario'],$products[$i]['idProducto']);
+            ?>
+        </button>
 </div>
 <div class="footer">
     <p>Contacto: </p>

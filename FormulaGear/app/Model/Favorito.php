@@ -5,7 +5,7 @@
         private $idUsuario;
         private $idProducto;
 
-        public function __construct($idProducto,$idFavorito,$idUsuario)
+        public function __construct($idFavorito,$idProducto,$idUsuario)
         {
         $this->idProducto = $idProducto;
         $this->idFavorito = $idFavorito;

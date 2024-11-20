@@ -31,9 +31,10 @@ $products = $productController->getAllProducts();
             </div>
             <nav>
                 <ul class="nav-links">
-
-                    <li><a href="../productos/productos.php">Productos</a></li>
-                    <li><a href="../perfil/perfil.php">Perfil</a></li>
+                    <div class="opciones">
+                        <li><a href="../productos/productos.php">Productos</a></li>
+                        <li><a href="../perfil/perfil.php">Perfil</a></li>
+                    </div>
                     <div class="perfil-image">
                         <a href="../perfil/perfil.php">
                             <img id="persona-image" src="../../../Imagenes/perfil.png">
@@ -60,9 +61,7 @@ $products = $productController->getAllProducts();
                     <select name="producto-seleccionado" class="select-products">
                         <?php
                         for ($i = 0; $i < count($products); $i++) {
-                            /*Comprobamos si el id del producto que estamos verificando es igual a la opción enviada desde el formulario
-                             Se le resta uno ya que las opciones del select empiezan en 1 no en 0. En este caso queremos usar la opción seleccionada
-                             como índice para encontrar el producto seleccionado.
+                            /*Aquí se comprueba si el id del producto que estamos verificando es igual al id del producto seleccionado por el usuario en el select. Si es correcto, guardamos la posición del producto en sesión para usarlo como índice a la hora de mostrar la información del producto y a la hora de pasar el id de producto cuando se tenga que eliminar o actualizar un producto.
                             */
                             if ($products[$i]['idProducto'] == $_POST['producto-seleccionado']) {
 
@@ -73,7 +72,7 @@ $products = $productController->getAllProducts();
                             <?php
                                 //Una vez encontramos el nombre del producto deseado, obtenemos la información de ese producto junto con sus tallas
                                 $product = $producto->getDetailProductByID($products[$i]['idProducto']);
-                                
+
                                 $_SESSION['selectedIndex']= $i;
                             } else {
                             ?>
@@ -129,7 +128,7 @@ $products = $productController->getAllProducts();
                 }else{
                     $productController->updateProduct($products[$_SESSION['selectedIndex']]['idProducto'], $products[$_SESSION['selectedIndex']]['nombreProducto'], $_POST['precioProducto'], $_POST['descripcionProducto'], $_POST['imagenProducto']);
                 }
-                
+
                 header("Location: admin.php");
                 exit();
             } else {

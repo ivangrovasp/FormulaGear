@@ -25,8 +25,8 @@ $user = $sesion->obtenerVariableSesion("usuario");
         </div>
         <nav>
             <ul class="nav-links">
-            <li><a href="../favoritos/favorito.php">Whislist</a></li>
-            <li><a href="../productos/productos.php">Productos</a></li>
+                <li><a href="../favoritos/favorito.php">Whislist</a></li>
+                <li><a href="../productos/productos.php">Productos</a></li>
                 <li><a href="../perfil/perfil.php">Perfil</a></li>
                 <li><a href="../main/main.php">Inicio</a></li>
                 <div class="perfil-image">
@@ -43,18 +43,22 @@ $user = $sesion->obtenerVariableSesion("usuario");
 
 
     <div class="contenido-container">
+        <?php
+        ?>
         <div class="formulario-container">
             <p>Modificar Perfil</p>
             <form action="perfil.php" method="post">
-                <input type="text" name="nombre" placeholder="Nombre de usuario" required value="<?= $user['nombreUsuario'] ?>">
-                <input type="email" name="email" placeholder="Email" required value="<?= $user['correoUsuario'] ?>">
-                <input type="password" name="password" placeholder="contraseña" required value="<?= $user['passUsuario'] ?>">
+                <input type="text" name="nombre" placeholder="Nombre de usuario" required <?= $_SESSION['usuario']['permisosUsuario'] ? 'readonly' : ''; ?> value="<?= $user['nombreUsuario'] ?>">
+                <input type="email" name="email" placeholder="Email" required <?= $_SESSION['usuario']['permisosUsuario'] ? 'readonly' : ''; ?> value="<?= $user['correoUsuario'] ?>">
+                <input type="password" name="password" placeholder="contraseña" required <?= $_SESSION['usuario']['permisosUsuario'] ? 'readonly' : ''; ?> value="<?= $user['passUsuario'] ?>">
                 <input type="submit" id="submit" value="Aceptar">
             </form>
         </div>
+        <?php
+        ?>
     </div>
 
-    
+
     <!------------------------------------------------------------------------------------------------------------->
     <div id="divPerfil">
         <img src="../../../imagenes/perfil.png" alt="perfil" id="fotoPerfil">

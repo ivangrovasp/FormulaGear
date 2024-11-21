@@ -78,7 +78,12 @@ $user = $sesion->obtenerVariableSesion("usuario");
     </div>
 
     <div id="botonComprar">
-        <button>Comprar</button>
+        <form action="../orderDetail/orderDetail.php?id=<?= htmlspecialchars($product_id)?>" method="post">
+            <input type="hidden" name="comprar">
+            <button type="submit" name="comprar">
+                Comprar
+            </button>
+        </form>
     </div>
 
     <div class="footer">

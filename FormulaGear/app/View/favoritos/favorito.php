@@ -79,7 +79,7 @@ $products = $sesion->obtenerVariableSesion("favoritos");
                         for ($i = 0; $i < count($products); $i++) {
                             $product_id = $products[$i]['idProducto'];
                             $favoritoController->favoritoUserId($user['idUsuario'], $product_id);
-                        }
+                        } 
                         unset($_SESSION['favoritos']);
                         header("Location: favorito.php");
                         exit();

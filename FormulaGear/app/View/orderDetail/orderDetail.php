@@ -36,7 +36,7 @@ $order = $pedido->getOrder($product_id);
                 <div class="perfil-image">
                     <a href="../perfil/perfil.php">
                         <img id="persona-image" src="../../../Imagenes/perfil.png">
-  
+                        <p><?= $user['nombreUsuario'] ?></p>
                     </a>
                 </div>
 
@@ -49,11 +49,11 @@ $order = $pedido->getOrder($product_id);
             <p>Resumen de la compra</p>
         </div>
         <div class="formulario-container">
-            <p>Order Number "ID PRODUCTO"</p>
+            <p>Order ID: <?= $order[0]['idPedido'] ?></p>
             <form action="/app/View/login/login.php" method="post">
-                Nombre Producto<input type="email" name="email" >
-                Precio<input type="password" name="password" >
-                <img id="fotoResumen" src="../../../imagenes/neumatico.png" alt="Neumático f1">
+                Nombre Producto:<input type="text" name="email" value="<?= $order[0]['nombreProducto'] ?>" readonly >
+                Precio<input type="text" name="password" value="<?= $order[0]['precioProducto'] ?> €" readonly >
+                <img id="fotoResumen" src="../../..<?= $order[0]['imagenProducto'] ?>" alt="Neumático f1">
             </form>
             <a href="/app/View/main/main.php">Volver al menú principal</a>
         </div>

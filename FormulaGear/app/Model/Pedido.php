@@ -71,11 +71,22 @@ class Pedido
     {
         try {
             $conn = getDBConnection();
-            $query = $conn->prepare("SELECT pe.idPedido,pr.* FROM PEDIDO pe INNER JOIN PRODUCTO pr ON pe.idProducto = pr.idProducto WHERE pr.idProducto = ?");
+            $query = $conn->prepare("SELECT pe.idPedido,pe.idUsuario,pe.isLiked,pr.* FROM PEDIDO pe INNER JOIN PRODUCTO pr ON pe.idProducto = pr.idProducto WHERE pr.idProducto = ?");
             $query->bindParam(1, $idProduct);
             $query->execute();
             $res = $query->fetchAll(PDO::FETCH_ASSOC);
             return  $res;
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+    }
+    public function updateOrder($idProducto)
+    {
+        try {
+            $conn = getDBConnection();
+            $query = $conn->prepare("UPDATE `pedido` SET `isLiked`= 1 WHERE `idProducto` = ?");
+            $query->bindParam(1, $idProducto);
+            $query->execute();
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
         }

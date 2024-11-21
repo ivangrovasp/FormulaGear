@@ -3,6 +3,7 @@
 <?php
 require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Sesion.php";
 require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/ProductoController.php";
+require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/PedidoController.php";
 $sesion = new Sesion();
 $productController = new ProductoController();
 $product_id = $_GET['id'];
@@ -48,7 +49,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
         <div class="img2-container"> <img src="<?= htmlspecialchars($detailProducts[0]['imagenProducto']) ?>" alt="camisetaAston" class="imgProduct">
             <form action="detail.php?id=<?= htmlspecialchars($product_id) ?>" method="post" class="likes2">
                 <button type="submit" name="like" class="likes2" id="buttonLike">
-                    <p><?= htmlspecialchars($detailProducts[0]['numeroLikesProducto']) ?></p> 
+                    <p><?= htmlspecialchars($detailProducts[0]['numeroLikesProducto']) ?></p>
                     <img class="img-like" src="../../../Imagenes/corazon.png">
                 </button>
             </form>
@@ -59,7 +60,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
             <div class="talla">
                 <p>Tallas:</p>
                 <select>
-                    <?php 
+                    <?php
                     for ($i = 0; $i < count($detailProducts); $i++) {
                         $tallaId = $detailProducts[$i]['nombreTalla'];
                     ?>
@@ -88,7 +89,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
     </div>
 
     <div id="botonComprar">
-        <form action="../orderDetail/orderDetail.php?id=<?= htmlspecialchars($product_id)?>" method="post">
+        <form action="../orderDetail/orderDetail.php?id=<?= htmlspecialchars($product_id) ?>" method="post">
             <input type="hidden" name="comprar">
             <button type="submit" name="comprar">
                 Comprar
@@ -104,21 +105,28 @@ $user = $sesion->obtenerVariableSesion("usuario");
         </div>
     </div>
 
-    <?php 
+    <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['like'])) {
-        $productController->updateProductLikes($product_id);
-        // Redirige para evitar reenvío del formulario al recargar la página
-        header("Location: detail.php?id=" . $product_id);
-        exit();
-    } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form1'])){
+        $pedido = new PedidoController();
+        $order = $pedido->getOrder($product_id);
+        if ($order != null) {
+            if (!$order[0]['isLiked']) {
+                $productController->updateProductLikes($product_id);
+                $pedido->updateOrder($order[0]['idProducto']);
+                // Redirige para evitar reenvío del formulario al recargar la página
+                header("Location: detail.php?id=" . $product_id);
+                exit();
+            }
+        }
+    } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form1'])) {
         if (isset($_SESSION['favoritos'])) {
-            array_push($_SESSION['favoritos'],$detailProducts[0]);
-         }else{
-           // $sesion->iniciarVariableSesion('favoritos',$detailProducts[0]);
-           $_SESSION['favoritos'] = [
-            0 => $detailProducts[0],
+            array_push($_SESSION['favoritos'], $detailProducts[0]);
+        } else {
+            // $sesion->iniciarVariableSesion('favoritos',$detailProducts[0]);
+            $_SESSION['favoritos'] = [
+                0 => $detailProducts[0],
             ];
-         }
+        }
     }
     ?>
 </body>

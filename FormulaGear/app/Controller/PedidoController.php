@@ -11,5 +11,9 @@ class PedidoController {
         $pedido = new Pedido(0,0,0,false);
         return $pedido->getOrder($idProduct);
     }
+    public function updateOrder($idProduct){
+        $pedido = new Pedido(0,0,0,false);
+        $pedido->updateOrder($idProduct);
+    }
 }
 ?>

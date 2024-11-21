@@ -81,7 +81,8 @@ $products = $sesion->obtenerVariableSesion("favoritos");
                             $favoritoController->favoritoUserId($user['idUsuario'], $product_id);
                         }
                         unset($_SESSION['favoritos']);
-                        echo "Neumático bien chido";
+                        header("Location: favorito.php");
+                        exit();
                     }
                 }
                 ?>

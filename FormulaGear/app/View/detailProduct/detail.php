@@ -72,7 +72,17 @@ $user = $sesion->obtenerVariableSesion("usuario");
             <p class="precio"><?= $detailProducts[0]['precioProducto'] . "€" ?></p>
             <form action="detail.php?id=<?= htmlspecialchars($product_id) ?>" method="POST">
                     <input type="hidden" name="form1">
+                    <?php 
+                        if (!$_SESSION['idproducto']['idProducto']) {
+                    ?>
                     <input type="submit" id="fav" value="Añadir a favoritos">
+                    <?php
+                    } else{
+                        ?>
+                    <input type="submit" id="fav" value="Ya se ha añadido a favoritos" readonly>
+                    <?php
+                    }
+                    ?>
             </form>
         </div>
     </div>
@@ -87,7 +97,6 @@ $user = $sesion->obtenerVariableSesion("usuario");
     </div>
 
     <div class="footer">
-        <p>Contacto: </p>
         <div class="footer-content">
             <p class="pfooter"><img class="rrss" src="../../../Imagenes/gmail.png">FormulaGear@gmail.com</p>
             <p class="pfooter"><img class="rrss" src="../../../Imagenes/twitter.png">FormulaGear</p>

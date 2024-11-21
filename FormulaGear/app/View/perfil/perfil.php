@@ -97,7 +97,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
             $sesion->iniciarVariableSesion("usuario",$user);
             //Llamamos al método del controlador para modificar el usuario
             $userController->updateUser($user['idUsuario'],$user['nombreUsuario'],$user['correoUsuario'],$user['permisosUsuario'],$user['passUsuario']);
-            header("Location: /FormulaGear/FormulaGear/app/View/perfil/perfil.php");
+            header("Location: /app/View/perfil/perfil.php");
         } else {
             echo "Correo no válido";
         }

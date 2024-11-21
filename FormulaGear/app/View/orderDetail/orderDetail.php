@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Sesion.php";
+require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/PedidoController.php";
+$sesion = new Sesion();
+$pedido = new PedidoController();
+$product_id = $_GET['id'];
+$user = $sesion->obtenerVariableSesion("usuario");
+$pedido->addOrder($user['idUsuario'],$product_id,false);
+$order = $pedido->getOrder($product_id);
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

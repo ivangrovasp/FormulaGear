@@ -90,7 +90,6 @@ $products = $sesion->obtenerVariableSesion("favoritos");
         </form>
     </div>
     <div class="footer">
-        <p>Contacto: </p>
         <div class="footer-content">
             <p class="pfooter"><img class="rrss" src="../../../Imagenes/gmail.png">FormulaGear@gmail.com</p>
             <p class="pfooter"><img class="rrss" src="../../../Imagenes/twitter.png">FormulaGear</p>

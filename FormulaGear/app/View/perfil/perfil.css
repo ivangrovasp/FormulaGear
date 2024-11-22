@@ -9,11 +9,14 @@ body{
 .header-container{
     display: flex;
     justify-content: left;
-    align-items: center; 
+    align-items: center;
     height: 163px;
+    width: 100%;
     background-color: #C60000;
     border: 3px solid black;
- }
+    position: fixed;
+    z-index: 1;
+}
 
  .logo-container{
     display: flex;

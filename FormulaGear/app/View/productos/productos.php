@@ -29,7 +29,7 @@ $products = $productController->getAllProducts();
 
         <nav>
             <ul class="nav-links">
-            <li><a href="../favoritos/favorito.php">Whislist</a></li>
+            <li><a href="../favoritos/favorito.php">Favoritos</a></li>
             <li><a href="../productos/productos.php">Productos</a></li>
                 <li><a href="../perfil/perfil.php">Perfil</a></li>
                 <li><a href="../main/main.php">Inicio</a></li>
@@ -69,17 +69,13 @@ $products = $productController->getAllProducts();
             ?>
 
     </div>
-    <div style="padding-top : 700px"></div>
     <div class="footer">
-        <p>Contacto: </p>
-
         <div class="footer-content">
             <p class="pfooter"><img class="rrss" src="../../../Imagenes/gmail.png">FormulaGear@gmail.com</p>
             <p class="pfooter"><img class="rrss" src="../../../Imagenes/twitter.png">FormulaGear</p>
             <p class="pfooter"><img class="rrss" src="../../../Imagenes/instagram.png">FormulaGear</p>
         </div>
     </div>
-
 </body>
 
 </html>

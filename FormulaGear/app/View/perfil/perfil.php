@@ -25,7 +25,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="../favoritos/favorito.php">Whislist</a></li>
+                <li><a href="../favoritos/favorito.php">Favoritos</a></li>
                 <li><a href="../productos/productos.php">Productos</a></li>
                 <li><a href="../perfil/perfil.php">Perfil</a></li>
                 <li><a href="../main/main.php">Inicio</a></li>
@@ -71,7 +71,6 @@ $user = $sesion->obtenerVariableSesion("usuario");
     </div>
     <!------------------------------------------------------------------------------------------------------------->
     <div class="footer">
-        <p id="contactFooter">Contacto: </p>
         <div class="footer-content">
             <p class="pfooter"><img class="rrss" src="../../../Imagenes/gmail.png">FormulaGear@gmail.com</p>
             <p class="pfooter"><img class="rrss" src="../../../Imagenes/twitter.png">FormulaGear</p>

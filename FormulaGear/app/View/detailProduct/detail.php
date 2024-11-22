@@ -74,15 +74,15 @@ $user = $sesion->obtenerVariableSesion("usuario");
             <form action="detail.php?id=<?= htmlspecialchars($product_id) ?>" method="POST">
                     <input type="hidden" name="form1">
                     <?php 
-                        if (!$_SESSION['idproducto']['idProducto']) {
+                        //if (!$_SESSION['idproducto']['idProducto']) {
                     ?>
                     <input type="submit" id="fav" value="Añadir a favoritos">
                     <?php
-                    } else{
+                    //} else{
                         ?>
-                    <input type="submit" id="fav" value="Ya se ha añadido a favoritos" readonly>
+                    <!--<input type="submit" id="fav" value="Ya se ha añadido a favoritos" readonly>-->
                     <?php
-                    }
+                    //}
                     ?>
             </form>
         </div>

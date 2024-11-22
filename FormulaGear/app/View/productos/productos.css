@@ -106,7 +106,8 @@ p {
 }
 
 .footer {
-    margin-top: 30px;
+    margin-top: 600px;
+    margin-bottom: 0px;
     background-color: #C60000;
     color: white;
     display: flex;
@@ -114,7 +115,6 @@ p {
     justify-content: center;
     align-items: center;
     font-size: 17px;
-    width: 2000px;
     height: 100px;
 }
 

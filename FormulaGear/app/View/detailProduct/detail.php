@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/PedidoController.php";
 require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Sesion.php";
 require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/ProductoController.php";
-require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/PedidoController.php";
 $sesion = new Sesion();
 $productController = new ProductoController();
 $product_id = $_GET['id'];
-$detailProducts = $productController->getDetailProductByID($product_id);
+    $detailProducts = $productController->getDetailProductByID($product_id);
 $user = $sesion->obtenerVariableSesion("usuario");
 ?>
 
@@ -73,16 +73,28 @@ $user = $sesion->obtenerVariableSesion("usuario");
             <p class="precio"><?= $detailProducts[0]['precioProducto'] . "€" ?></p>
             <form action="detail.php?id=<?= htmlspecialchars($product_id) ?>" method="POST">
                     <input type="hidden" name="form1">
-                    <?php 
-                        //if (!$_SESSION['idproducto']['idProducto']) {
-                    ?>
-                    <input type="submit" id="fav" value="Añadir a favoritos">
                     <?php
-                    //} else{
+                    if (!isset($_SESSION['favoritos'])) {
+                        $_SESSION['favoritos'] = [];
+                    }
+                    
+                    $product_in_favorite = false;
+                    // Recorremos el array de favoritos
+                    for ($i = 0; $i < count($_SESSION['favoritos']); $i++) {
+                        if ($_SESSION['favoritos'][$i]['idProducto'] == $product_id) {
+                            $product_in_favorite = true;
+                            break;
+                        }
+                    }
+                    if ($product_in_favorite) {
                         ?>
-                    <!--<input type="submit" id="fav" value="Ya se ha añadido a favoritos" readonly>-->
-                    <?php
-                    //}
+                        <input type="submit" id="fav2" value="Ya está añadido" disabled>
+                        <?php
+                    } else {
+                        ?>
+                        <input type="submit" id="fav" value="Añadir a favoritos">
+                        <?php
+                    }
                     ?>
             </form>
         </div>
@@ -121,8 +133,9 @@ $user = $sesion->obtenerVariableSesion("usuario");
     } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form1'])) {
         if (isset($_SESSION['favoritos'])) {
             array_push($_SESSION['favoritos'], $detailProducts[0]);
+            header("Location: detail.php?id=" . $product_id);
+            exit();
         } else {
-            // $sesion->iniciarVariableSesion('favoritos',$detailProducts[0]);
             $_SESSION['favoritos'] = [
                 0 => $detailProducts[0],
             ];

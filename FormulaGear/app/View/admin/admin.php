@@ -34,6 +34,7 @@ $products = $productController->getAllProducts();
                     <div class="opciones">
                         <li><a href="../productos/productos.php">Productos</a></li>
                         <li><a href="../perfil/perfil.php">Perfil</a></li>
+                        <li id="null"><a></a></li>
                     </div>
                     <div class="perfil-image">
                         <a href="../perfil/perfil.php">
@@ -167,7 +168,6 @@ $products = $productController->getAllProducts();
 
         </form>
         <div class="footer">
-            <p id="contactFooter">Contacto: </p>
             <div class="footer-content">
                 <p class="pfooter"><img class="rrss" src="../../../Imagenes/gmail.png">FormulaGear@gmail.com</p>
                 <p class="pfooter"><img class="rrss" src="../../../Imagenes/twitter.png">FormulaGear</p>

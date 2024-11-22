@@ -87,8 +87,10 @@ p {
 }
 .opciones{
     display: flex;
-    justify-content: space-around;
+    justify-content: left;
     flex-grow: 1;
+    margin-left: 150px;
+    gap: 100px;
 }
 .nav-links li {
     width: 100px;
@@ -99,7 +101,10 @@ p {
     background-color: #1E1E1E;
     list-style: none;
 }
-
+#null{
+    background-color: #C60000;
+    border: none;
+}
 
 .header-container .nav-links a {
     display: flex;
@@ -153,13 +158,14 @@ p {
 }
 
 .grid{
+    margin-top: 150px;
     display: grid;
     justify-items: center;
     align-items: center;
     justify-content: center;
     align-content: center;
-    grid-template-columns: repeat(4,110px);
-    grid-template-rows:repeat(6,40px);
+    grid-template-columns: repeat(4,130px);
+    grid-template-rows:repeat(6,60px);
     grid-template-areas:
     "nombreProducto nombreProducto nombreProducto nombreProducto"
     "newNombreProducto newNombreProducto newNombreProducto newNombreProducto"
@@ -182,6 +188,7 @@ p {
 }
 .cargarProducto{
     grid-area: cargarProducto;
+
 }
 .nombreProducto{
     grid-area: nombreProducto;

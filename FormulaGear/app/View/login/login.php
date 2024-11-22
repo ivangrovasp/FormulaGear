@@ -67,7 +67,9 @@ if($user != null){
                     }else{
                         header("Location: /app/View/main/main.php");
                     }
-                } else {
+                } else if($llamadaLoginController == 'Contraseña no válida'){
+                    echo "Contraseña no válida";
+                }else {
                     echo "No hay ningún usuario registrado con ese email";
                 }
             } else {

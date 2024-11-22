@@ -92,8 +92,8 @@ $user = $sesion->obtenerVariableSesion("usuario");
                         <?php
                     } else {
                         ?>
-                        <input type="submit" id="fav" value="Añadir a favoritos">
-                        <?php
+                    <input type="submit" id="fav" value="Ya se ha añadido a favoritos" readonly>
+                    <?php
                     }
                     ?>
             </form>

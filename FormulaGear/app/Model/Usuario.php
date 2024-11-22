@@ -50,12 +50,12 @@ Class Usuario{
         $this->passUsuario = $passUsuario;
     }
 
-    public static function getLogin($correo,$contraseña) {
+    public static function getLogin($correo) {
         try{
             $conn = getDbConnection();
-            $sentencia = $conn->prepare("SELECT * FROM usuario WHERE correoUsuario = ? AND passUsuario = ?");
+            $sentencia = $conn->prepare("SELECT * FROM usuario WHERE correoUsuario = ?");
             $sentencia->bindParam(1, $correo);
-            $sentencia->bindParam(2, $contraseña);
+            //$sentencia->bindParam(2, $contraseña);AND passUsuario = ?
             $sentencia->execute();
             $result = $sentencia->fetchAll(PDO::FETCH_ASSOC);
             return $result;

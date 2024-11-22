@@ -90,13 +90,16 @@ $user = $sesion->obtenerVariableSesion("usuario");
             //modificamos los valores de la sesión
             $user['nombreUsuario'] = $nombreFiltrado;
             $user['correoUsuario'] = $correoFiltrado;
-            $user['passUsuario'] = $passFiltrada;
-            //Eliminamos la sesión anterior y creamos una nueva con los datos actualizados
-            $sesion->eliminarVariableSesion('usuario');
-            $sesion->iniciarVariableSesion("usuario",$user);
-            //Llamamos al método del controlador para modificar el usuario
-            $userController->updateUser($user['idUsuario'],$user['nombreUsuario'],$user['correoUsuario'],$user['permisosUsuario'],$user['passUsuario']);
-            header("Location: /app/View/perfil/perfil.php");
+            if ($user['passUsuario'] != $passFiltrada) {
+                $passHasheada = password_hash($passFiltrada,PASSWORD_DEFAULT);
+                $user['passUsuario'] = $passHasheada;
+                //Eliminamos la sesión anterior y creamos una nueva con los datos actualizados
+                $sesion->eliminarVariableSesion('usuario');
+                $sesion->iniciarVariableSesion("usuario", $user);
+                //Llamamos al método del controlador para modificar el usuario
+                $userController->updateUser($user['idUsuario'], $user['nombreUsuario'], $user['correoUsuario'], $user['permisosUsuario'], $user['passUsuario']);
+                header("Location: /app/View/perfil/perfil.php");
+            }
         } else {
             echo "Correo no válido";
         }

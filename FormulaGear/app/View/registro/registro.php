@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['terminos-condiciones']
 
     if (filter_var($correoFiltrado, FILTER_VALIDATE_EMAIL)) {
         $userController = new UsuarioController();
-        if ($userController->crearUsuario($nombreFiltrado, $correoFiltrado, $passFiltrada)) {
+        $passHasheada = password_hash($passFiltrada,PASSWORD_DEFAULT);
+        if ($userController->crearUsuario($nombreFiltrado, $correoFiltrado, $passHasheada)) {
             header("Location: /app/View/main/main.php");
         } else {
             echo "Correo en uso";

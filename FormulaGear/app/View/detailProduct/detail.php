@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/PedidoController.php";
-require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Sesion.php";
-require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/ProductoController.php";
+require_once "D:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/PedidoController.php";
+require_once "D:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Sesion.php";
+require_once "D:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/ProductoController.php";
 $sesion = new Sesion();
 $productController = new ProductoController();
 $product_id = $_GET['id'];
@@ -92,7 +92,7 @@ $user = $sesion->obtenerVariableSesion("usuario");
                         <?php
                     } else {
                         ?>
-                    <input type="submit" id="fav" value="Ya se ha añadido a favoritos" readonly>
+                    <input type="submit" id="fav" value="Añadir a favoritos" readonly>
                     <?php
                     }
                     ?>

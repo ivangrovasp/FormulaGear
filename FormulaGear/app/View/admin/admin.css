@@ -9,7 +9,9 @@ body {
 .container{
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+ 
 }
 
 .header-container {
@@ -107,41 +109,8 @@ li {
 
 }
 
-.footer {
-
-    margin-top: 0;
-    background-color: #C60000;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 17px;
-    width: 100vw;
-    height: 100px;
-    margin-bottom: 0;
-}
-
-.rrss {
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.pfooter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .grid{
-    margin-top: 150px;
+    
     display: grid;
     justify-items: center;
     align-items: center;
@@ -222,4 +191,55 @@ li {
     background-color: transparent;
     border: none;
     text-align: center;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------*/
+.datosUsuario{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 450px;
+    width: 500px;
+    margin-top: 50px;
+}
+
+#divPerfil{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+#fotoPerfil{
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+#nombreUsuario{
+    width: 175px;
+    height: 45px;
+    margin-top: 20px;
+    text-align: center;
+}
+p{
+    font-family: 'Kalam';
+}
+#botonSesion{
+    width: 175px;
+    height: 45px;
+    background-color: #1E1E1E;
+    margin-top: 20px; 
+}
+button{
+    width: 175px;
+    height: 45px;
+    background-color: #1E1E1E;
+    color: white;
+}  
+/*-----------------------------------------------------------------------------------------------------------------------------------*/
+.contentInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 100px;
+    min-height: 92vh;
 }

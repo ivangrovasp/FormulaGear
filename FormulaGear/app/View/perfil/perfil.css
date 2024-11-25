@@ -5,6 +5,7 @@ body{
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0;
+    height: 100vh;
 }
 .header-container{
     display: flex;
@@ -107,7 +108,7 @@ p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 70vh;
+    height: 100vh;
 }
 .formulario-container{
     display: flex;
@@ -148,7 +149,7 @@ input{
 }
 /*-----------------------------------------------------------------------------------------------------------------------------------*/
 #divPerfil{
-    margin-top:-550px;
+    margin-top:-650px;
     margin-left: 150px;
     width: 300px;
     height: 300px;
@@ -184,7 +185,7 @@ button{
 }  
 /*-----------------------------------------------------------------------------------------------------------------------------------*/
 .footer {
-    margin-top: 130px;
+    margin-top: 125px;
     margin-bottom: 0px;
     background-color: #C60000;
     color: white;

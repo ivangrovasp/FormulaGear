@@ -106,7 +106,7 @@ p {
 }
 
 .footer {
-    margin-top: 600px;
+    margin-top: 50px;
     margin-bottom: 0px;
     background-color: #C60000;
     color: white;
@@ -136,13 +136,9 @@ p {
     align-items: center;
 }
 
-
-
 .rojo {
     color: red;
 }
-
-
 
 .trending-products{
     display: flex;

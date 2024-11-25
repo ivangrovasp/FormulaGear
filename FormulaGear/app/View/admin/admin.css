@@ -56,24 +56,6 @@ body {
 
 }
 
-#persona-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 100px;
-}
-.perfil-image{
-    flex-grow: 0;
-}
-
-.perfil-image a {
-    margin-left: 150px;
-    margin-right: 50px;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Kalam';
-    list-style: none;
-}
-
 p {
     margin-top: 0;
     margin-bottom: 0;
@@ -87,19 +69,20 @@ p {
 }
 .opciones{
     display: flex;
-    justify-content: left;
-    flex-grow: 1;
-    margin-left: 150px;
-    gap: 100px;
+    margin-left: 300px;
 }
-.nav-links li {
-    width: 100px;
+li {
+    width: 400px;
     height: 50px;
-    padding: 0px 20px;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'Kalam';
+    font-size: 30px;
     background-color: #1E1E1E;
     list-style: none;
+    color: white;
 }
 #null{
     background-color: #C60000;

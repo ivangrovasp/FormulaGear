@@ -32,17 +32,8 @@ $products = $productController->getAllProducts();
             <nav>
                 <ul class="nav-links">
                     <div class="opciones">
-                        <li><a href="../productos/productos.php">Productos</a></li>
-                        <li><a href="../perfil/perfil.php">Perfil</a></li>
-                        <li id="null"><a></a></li>
+                        <li>Panel de administración</li>
                     </div>
-                    <div class="perfil-image">
-                        <a href="../perfil/perfil.php">
-                            <img id="persona-image" src="../../../Imagenes/perfil.png">
-                            <p><?= $user['nombreUsuario'] ?></p>
-                        </a>
-                    </div>
-
                 </ul>
             </nav>
         </header>

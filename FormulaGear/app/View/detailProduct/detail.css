@@ -202,6 +202,7 @@ select{
     border: none;
     background-color: white;
     font-family: 'Kalam';
+    cursor: pointer;
 }
 
 #botonComprar{

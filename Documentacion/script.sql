@@ -1,10 +1,10 @@
 /*
 INSERTAR USUARIOS
 */
-INSERT INTO `usuario`( `nombreUsuario`, `correoUsuario`, `permisosUsuario`, `passUsuario`) VALUES ('Admin','admin@gmail.com',1,'admin123');
-INSERT INTO `usuario`( `nombreUsuario`, `correoUsuario`, `permisosUsuario`, `passUsuario`) VALUES ('Mathias','mathiasveira@gmail.com',0,'mathias123');
-INSERT INTO `usuario`( `nombreUsuario`, `correoUsuario`, `permisosUsuario`, `passUsuario`) VALUES ('Ivan','ivan@gmail.com',0,'ivan123');
-INSERT INTO `usuario`( `nombreUsuario`, `correoUsuario`, `permisosUsuario`, `passUsuario`) VALUES ('Alberto','alberto@gmail.com',0,'alberto123');
+INSERT INTO `usuario`( `nombreUsuario`, `correoUsuario`, `permisosUsuario`, `passUsuario`) VALUES ('Admin','admin@gmail.com',1,'$2y$10$dXe7FlukGziCt5Ra8ZzucObCBSIBDmMLiQjVCX0bXP4W6NqR8kyyC');
+INSERT INTO `usuario`( `nombreUsuario`, `correoUsuario`, `permisosUsuario`, `passUsuario`) VALUES ('Mathias','mathiasveira@gmail.com',0,'$2y$10$Z.60oZi/eZn7P2K5Ael50ePgTvaxEcmvGACu3PDiBuifZzxIwHdK6');
+INSERT INTO `usuario`( `nombreUsuario`, `correoUsuario`, `permisosUsuario`, `passUsuario`) VALUES ('Ivan','ivan@gmail.com',0,'$2y$10$yeo1T6Z7Il5gZixcgM3h.Oryksvq7M4kYC7ftwOlyrifoM4/JWYpW');
+INSERT INTO `usuario`( `nombreUsuario`, `correoUsuario`, `permisosUsuario`, `passUsuario`) VALUES ('Alberto','alberto@gmail.com',0,'$2y$10$14PMxdE2xtIJG9hQg1i3C.ZqVm.krADtZpSA6dhUAoq08MOr.zuyK');
 /*
 INSERTAR PRODUCTOS
 */

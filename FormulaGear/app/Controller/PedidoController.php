@@ -7,9 +7,9 @@ class PedidoController {
         $pedido = new Pedido(0,0,0,false);
         $pedido->addOrder($idUsuario,$idProducto,$isLiked);
     }
-    public function getOrder($idProduct){
+    public function getOrder($idProduct,$idUsuario){
         $pedido = new Pedido(0,0,0,false);
-        return $pedido->getOrder($idProduct);
+        return $pedido->getOrder($idProduct,$idUsuario);
     }
     public function updateOrder($idProduct){
         $pedido = new Pedido(0,0,0,false);

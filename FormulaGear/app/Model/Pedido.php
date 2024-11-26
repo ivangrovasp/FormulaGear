@@ -67,12 +67,13 @@ class Pedido
             echo "ERROR: " . $e->getMessage();
         }
     }
-    public function getOrder($idProduct)
+    public function getOrder($idProduct,$idUsuario)
     {
         try {
             $conn = getDBConnection();
-            $query = $conn->prepare("SELECT pe.idPedido,pe.idUsuario,pe.isLiked,pr.* FROM PEDIDO pe INNER JOIN PRODUCTO pr ON pe.idProducto = pr.idProducto WHERE pr.idProducto = ?");
+            $query = $conn->prepare("SELECT pe.idPedido,pe.idUsuario,pe.isLiked,pr.* FROM PEDIDO pe INNER JOIN PRODUCTO pr ON pe.idProducto = pr.idProducto WHERE pr.idProducto = ? AND pe.idUsuario = ?");
             $query->bindParam(1, $idProduct);
+            $query->bindParam(2, $idUsuario);
             $query->execute();
             $res = $query->fetchAll(PDO::FETCH_ASSOC);
             return  $res;

@@ -8,7 +8,7 @@ $pedido = new PedidoController();
 $product_id = $_GET['id'];
 $user = $sesion->obtenerVariableSesion("usuario");
 $pedido->addOrder($user['idUsuario'],$product_id,false);
-$order = $pedido->getOrder($product_id);
+$order = $pedido->getOrder($product_id,$user['idUsuario']);
 ?>
 <head>
     <meta charset="UTF-8">

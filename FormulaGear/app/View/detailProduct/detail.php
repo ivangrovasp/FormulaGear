@@ -121,7 +121,7 @@ $product_in_favorite = false;
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['like'])) {
         $pedido = new PedidoController();
-        $order = $pedido->getOrder($product_id);
+        $order = $pedido->getOrder($product_id,$user['idUsuario']);
         if ($order != null) {
             if (!$order[0]['isLiked']) {
                 $productController->updateProductLikes($product_id);

@@ -6,7 +6,9 @@ require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Sesion.php";
 require_once '../../Controller/ProductoController.php';
 $sesion = new Sesion();
 $sesion->iniciarVariableSesion('selectedIndex', -1);
+$sesion->iniciarVariableSesion("productoCargado",false);
 $user = $sesion->obtenerVariableSesion("usuario");
+$productoCargado = $sesion->obtenerVariableSesion("productoCargado");
 $productController = new ProductoController();
 $products = $productController->getAllProducts();
 ?>
@@ -59,7 +61,7 @@ $products = $productController->getAllProducts();
                     require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/ProductoController.php";
 
                     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cargar'])) {
-                        //Obtenemos el producto junto con las tallas
+                        $productoCargado = true;
                         $producto = new ProductoController();
                         //Esta línea se supone que era para obtener el producto junto con sus tallas para mostarlas en el select de tallas
                         $product;
@@ -117,20 +119,23 @@ $products = $productController->getAllProducts();
                                 ?>
                             </select>
                         </div>
-                        <div class="gridarea añadir"><input type="submit" name="añadir" value="Añadir" class="style-inputs"></div>
-                        <div class="gridarea eliminar"><input type="submit" name="eliminar" value="Eliminar" class="style-inputs"></div>
-                        <div class="gridarea confirmar"><input type="submit" name="confirmar" value="Confirmar" class="style-inputs"></div>
+                        <div class="gridarea añadir"><input type="submit" <?=$productoCargado?'':'disabled'?> name="añadir" value="Añadir" class="style-inputs"></div>
+                        <div class="gridarea eliminar"><input type="submit" <?=$productoCargado?'':'disabled'?> name="eliminar" value="Eliminar" class="style-inputs"></div>
+                        <div class="gridarea confirmar"><input type="submit" <?=$productoCargado?'':'disabled'?> name="confirmar" value="Confirmar" class="style-inputs"></div>
                         <div class="gridarea cargarProducto"><input type="submit" name="cargar" value="Cargar Producto" class="style-inputs"></div>
                     <?php
                     } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['añadir'])) {
+                        $productoCargado = false;
                         $productController->addProduct($_POST['nuevoNombreProducto'], $_POST['precioProducto'], $_POST['descripcionProducto'], $_POST['imagenProducto'], 0);
                         header("Location: admin.php");
                         exit();
                     } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['eliminar'])) {
+                        $productoCargado = false;
                         $productController->deleteProduct($products[$_SESSION['selectedIndex']]['idProducto']);
                         header("Location: admin.php");
                         exit();
                     } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirmar'])) {
+                        $productoCargado = false;
                         if ($_POST['nuevoNombreProducto'] != '') {
                             $productController->updateProduct($products[$_SESSION['selectedIndex']]['idProducto'], $_POST['nuevoNombreProducto'], $_POST['precioProducto'], $_POST['descripcionProducto'], $_POST['imagenProducto']);
                         } else {
@@ -165,9 +170,9 @@ $products = $productController->getAllProducts();
                         </div>
                         <div class="gridarea precioProducto"><input type="number" name="precioProducto" placeholder="Precio" class="style-inputs"></div>
                         <div class="gridarea talla">Talla</div>
-                        <div class="gridarea añadir"><input type="submit" name="añadir" value="Añadir" class="style-inputs"></div>
-                        <div class="gridarea eliminar"><input type="submit" name="eliminar" value="Eliminar" class="style-inputs"></div>
-                        <div class="gridarea confirmar"><input type="submit" name="confirmar" value="Confirmar" class="style-inputs"></div>
+                        <div class="gridarea añadir"><input type="submit" <?=$productoCargado?'':'disabled'?> name="añadir" value="Añadir" class="style-inputs"></div>
+                        <div class="gridarea eliminar"><input type="submit" <?=$productoCargado?'':'disabled'?> name="eliminar" value="Eliminar" class="style-inputs"></div>
+                        <div class="gridarea confirmar"><input type="submit" <?=$productoCargado?'':'disabled'?> name="confirmar" value="Confirmar" class="style-inputs"></div>
                         <div class="gridarea cargarProducto"><input type="submit" name="cargar" value="Cargar Producto" class="style-inputs"></div>
                     <?php
                     }

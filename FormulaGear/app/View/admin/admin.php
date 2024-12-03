@@ -119,7 +119,7 @@ $products = $productController->getAllProducts();
                                 ?>
                             </select>
                         </div>
-                        <div class="gridarea añadir"><input type="submit" <?=$productoCargado?'':'disabled'?> name="añadir" value="Añadir" class="style-inputs"></div>
+                        <div class="gridarea añadir"><input type="submit" name="añadir" value="Añadir" class="style-inputs"></div>
                         <div class="gridarea eliminar"><input type="submit" <?=$productoCargado?'':'disabled'?> name="eliminar" value="Eliminar" class="style-inputs"></div>
                         <div class="gridarea confirmar"><input type="submit" <?=$productoCargado?'':'disabled'?> name="confirmar" value="Confirmar" class="style-inputs"></div>
                         <div class="gridarea cargarProducto"><input type="submit" name="cargar" value="Cargar Producto" class="style-inputs"></div>
@@ -170,7 +170,7 @@ $products = $productController->getAllProducts();
                         </div>
                         <div class="gridarea precioProducto"><input type="number" name="precioProducto" placeholder="Precio" class="style-inputs"></div>
                         <div class="gridarea talla">Talla</div>
-                        <div class="gridarea añadir"><input type="submit" <?=$productoCargado?'':'disabled'?> name="añadir" value="Añadir" class="style-inputs"></div>
+                        <div class="gridarea añadir"><input type="submit" name="añadir" value="Añadir" class="style-inputs"></div>
                         <div class="gridarea eliminar"><input type="submit" <?=$productoCargado?'':'disabled'?> name="eliminar" value="Eliminar" class="style-inputs"></div>
                         <div class="gridarea confirmar"><input type="submit" <?=$productoCargado?'':'disabled'?> name="confirmar" value="Confirmar" class="style-inputs"></div>
                         <div class="gridarea cargarProducto"><input type="submit" name="cargar" value="Cargar Producto" class="style-inputs"></div>

@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
+$colorPrimario:#C60000;
+$colorSecundario:#1E1E1E;
+$fuenteLetra: 'Kalam';
+body{
+    margin: 0;
+}
+.header-container{
+    display: flex;
+    justify-content: left;
+    align-items: center; 
+    height: 163px;
+    background-color: $colorPrimario;
+    border: 3px solid black;
+    
+}
+.logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 116px;
+    padding-right: 35px;
+    padding-left: 35px;
+    margin-left: 20px;
+    border-radius: 10px;
+    font-size: 64px;
+    font-family: $fuenteLetra;
+    background-color: $colorSecundario;
+    color: white;
+
+}
+.img-container{
+    position: absolute;
+    width: 232px;
+    height: 254px;
+    margin-left: 355px;
+    margin-bottom: 35px;
+
+}
+#neumatico{
+    width: 220px;
+    height: 295px;  
+    
+}
+
+
+.contenido-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+}
+
+.formulario-header{
+    display: flex;
+    background-color: $colorPrimario;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-top: 3px solid black;
+    width: 400px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+.formulario-container{
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    width: 400px;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario-container p{
+    font-size: 30px;
+    font-family: $fuenteLetra;
+    margin-bottom: 20px;
+}
+
+.formulario-container a{
+    margin-top: 20px;
+    color: black;
+    margin-bottom: 30px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 30px;
+    width: 400px;
+}
+
+input{
+    width: 200px;
+    height: 25px;
+    border: 2px solid black;
+    background-color: rgb(223, 221, 221);
+}
+#submit{
+    width: 100px;
+    margin: auto;
+    background-color: $colorSecundario;
+    color: white;
+}

@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
+$colorPrimario:#C60000;
+$colorSecundario:#1E1E1E;
+$fuenteLetra: 'Kalam';
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ 
+}
+
+.header-container {
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 163px;
+    width: 100%;
+    background-color: $colorPrimario;
+    border: 3px solid $colorSecundario;
+    position: fixed;
+    z-index: 1;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 116px;
+    padding-right: 35px;
+    padding-left: 35px;
+    margin-left: 20px;
+    border-radius: 10px;
+    font-size: 64px;
+    font-family: $fuenteLetra;;
+    background-color: $colorSecundario;
+    color: white;
+
+}
+
+.img-container {
+    position: absolute;
+    width: 232px;
+    height: 254px;
+    margin-left: 355px;
+    margin-bottom: 35px;
+
+}
+
+#neumatico {
+    width: 220px;
+    height: 295px;
+
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    width: 100%;
+    gap: 100px;
+}
+.opciones{
+    display: flex;
+    margin-left: 300px;
+}
+li {
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $fuenteLetra;;
+    font-size: 30px;
+    background-color: $colorSecundario;
+    list-style: none;
+    color: white;
+}
+#null{
+    background-color: $colorPrimario;
+    border: none;
+}
+
+.header-container .nav-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.header-container nav {
+    display: flex;
+    width: 100%;
+    
+
+}
+
+.grid{
+    
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(4,130px);
+    grid-template-rows:repeat(6,60px);
+    grid-template-areas:
+    "nombreProducto nombreProducto nombreProducto nombreProducto"
+    "newNombreProducto newNombreProducto newNombreProducto newNombreProducto"
+    "descripcionProducto descripcionProducto descripcionProducto descripcionProducto"
+    "descripcionProducto descripcionProducto descripcionProducto descripcionProducto"
+    "imagenProducto imagenProducto precioProducto talla"
+    "añadir eliminar confirmar confirmar"
+    "cargarProducto cargarProducto cargarProducto cargarProducto";
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.gridarea{
+    border: 2px solid black;
+    background-color: lightgrey;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-content: center;
+}
+.cargarProducto{
+    grid-area: cargarProducto;
+
+}
+.nombreProducto{
+    grid-area: nombreProducto;
+}
+.newNombreProducto{
+    grid-area: newNombreProducto;
+}
+.descripcionProducto{
+    grid-area: descripcionProducto;
+}
+.imagenProducto{
+    grid-area: imagenProducto;
+}
+
+.precioProducto{
+    grid-area: precioProducto;
+}
+.talla{
+    grid-area: talla;
+}
+.añadir{
+    grid-area: añadir;
+}
+.eliminar{
+    grid-area: eliminar;
+}
+.confirmar{
+    grid-area: confirmar;
+}
+.select-products{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    text-align: center;
+}
+.textNewNombreProducto{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+}
+.style-inputs{
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------*/
+.datosUsuario{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 450px;
+    width: 500px;
+    margin-top: 50px;
+}
+
+#divPerfil{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+#fotoPerfil{
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+#nombreUsuario{
+    width: 175px;
+    height: 45px;
+    margin-top: 20px;
+    text-align: center;
+}
+p{
+    font-family: $fuenteLetra;;
+}
+#botonSesion{
+    width: 175px;
+    height: 45px;
+    background-color: $colorSecundario;
+    margin-top: 20px; 
+}
+button{
+    width: 175px;
+    height: 45px;
+    background-color: $colorSecundario;
+    color: white;
+}  
+/*-----------------------------------------------------------------------------------------------------------------------------------*/
+.contentInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 100px;
+    min-height: 92vh;
+}

@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
+$colorPrimario:#C60000;
+$colorSecundario:#1E1E1E;
+$fuenteLetra: 'Kalam';
+body{
+    margin: 0;
+    height: 100vh;
+}
+.header-container{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 163px;
+    width: 100%;
+    background-color: $colorPrimario;
+    border: 3px solid black;
+    position: fixed;
+    z-index: 1;
+}
+
+ .logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 116px;
+    padding-right: 35px;
+    padding-left: 35px;
+    margin-left: 20px;
+    border-radius: 10px;
+    font-size: 64px;
+    font-family: $fuenteLetra;
+    background-color: $colorSecundario;
+    color: white;
+
+}
+
+.img-container{
+    position: absolute;
+    width: 232px;
+    height: 254px;
+    margin-left: 355px;
+    margin-bottom: 35px;
+
+}
+
+#neumatico{
+    width: 220px;
+    height: 295px;  
+    
+}
+
+#persona-image{
+    width: 100px;
+    height: 100px;  
+    border-radius: 100px;
+}
+
+.perfil-image a{
+    margin-left: 150px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    font-family: $fuenteLetra;
+    list-style: none;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}   
+
+.nav-links{
+     display: flex;
+     flex-direction: row;
+     gap: 100px;
+}
+ 
+.nav-links li {
+    width: 100px;
+    height: 50px;
+    padding:0px 20px;
+    border-radius: 10px;
+    font-family: $fuenteLetra;
+    background-color: $colorSecundario;
+    list-style: none;
+}
+ 
+
+ .header-container .nav-links a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;    
+ }
+
+ .header-container nav{
+    margin-left: auto;
+ }
+/*-------------------------------------------------------------------------------------------------------*/
+.contenido-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.formulario-container{
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    width: 600px;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario-container p{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 30px;
+    width: 550px;
+}
+
+input{
+    width: 500px;
+    height: 45px;
+    border: 2px solid black;
+    background-color: rgb(223, 221, 221);
+}
+
+#submit{
+    width: 250px;
+    margin: auto;
+    background-color: $colorSecundario;
+    color: white;
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------*/
+#divPerfil{
+    margin-top:-650px;
+    margin-left: 150px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+#fotoPerfil{
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+#nombreUsuario{
+    width: 175px;
+    height: 45px;
+    margin-top: 20px;
+    margin-left: 210px;
+    text-align: center;
+}
+p{
+    font-family: $fuenteLetra;
+}
+#botonSesion{
+    width: 175px;
+    height: 45px;
+    background-color: $colorSecundario;
+    margin-top: 20px;
+    margin-left: 210px;  
+}
+button{
+    width: 175px;
+    height: 45px;
+    background-color: $colorSecundario;
+    color: white;
+}  
+/*-----------------------------------------------------------------------------------------------------------------------------------*/
+.footer {
+    margin-top: 125px;
+    margin-bottom: 0px;
+    background-color: $colorPrimario;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    height: 100px;
+}
+
+.rrss {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.pfooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Kadwa';
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contactFooter{
+    font-family: 'Kadwa';
+}
+

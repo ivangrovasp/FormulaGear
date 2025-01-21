@@ -25,7 +25,7 @@ Class Usuario{
     private $correoUsuario;
 
     /**
-     * @var string $permisosUsuario Los permisos del usuario.
+     * @var bool $permisosUsuario Los permisos del usuario.
      */
     private $permisosUsuario;
 
@@ -40,7 +40,7 @@ Class Usuario{
      * @param int $idUsuario El ID único del usuario.
      * @param string $nombreUsuario El nombre del usuario.
      * @param string $correoUsuario El correo electrónico del usuario.
-     * @param string $permisosUsuario Los permisos del usuario.
+     * @param bool $permisosUsuario Los permisos del usuario.
      * @param string $passUsuario La contraseña del usuario.
      */
     public function __construct($idUsuario, $nombreUsuario,$correoUsuario,$permisosUsuario,$passUsuario){
@@ -171,13 +171,17 @@ Class Usuario{
      * @throws PDOException Lanza esta excepción si ocurre un error en la conexión con la base de datos.
      */
     public function crearUsuario($user){
+        $nombreUsuario = $user->getNombreUsuario();
+        $correoUsuario = $user->getCorreoUsuario();
+        $permisosUsuario = $user->getPermisosUsuario() ;
+        $passUsuario = $user->getPassUsuario();
         try {
             $conn = getDBConnection();
             $query = $conn->prepare("INSERT INTO `usuario`(`nombreUsuario`, `correoUsuario`, `permisosUsuario`, `passUsuario`) VALUES (?,?,?,?)");
-            $query->bindParam(1, $user->getNombreUsuario());
-            $query->bindParam(2, $user->getCorreoUsuario());
-            $query->bindParam(3, $user->getPermisosUsuario());
-            $query->bindParam(4, $user->getPassUsuario());
+            $query->bindParam(1, $nombreUsuario);
+            $query->bindParam(2, $correoUsuario);
+            $query->bindParam(3, $permisosUsuario);
+            $query->bindParam(4, $passUsuario);
             $query->execute();
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
@@ -216,10 +220,11 @@ Class Usuario{
      * @throws PDOException Lanza esta excepción si ocurre un error en la conexión con la base de datos.
      */
     public  function getUser($user){
+        $correoUsuario = $user->getCorreoUsuario();
         try {
             $conn = getDBConnection();
             $query = $conn->prepare("SELECT * FROM `usuario` WHERE correoUsuario = ?");
-            $query->bindParam(1, $user->getCorreoUsuario());
+            $query->bindParam(1, $correoUsuario);
             $query->execute();
             $res = $query->fetchAll(PDO::FETCH_ASSOC);
 

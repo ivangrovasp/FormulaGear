@@ -8,7 +8,7 @@ class LoginMockTest extends TestCase
     public function testInicioSesionMocks()
     {
         $correoFiltrado = 'mathiasveira@gmail.com';
-        $contraseñaFiltrada = 'mathias123';
+        $contraseñaFiltrada = 'aaaaa';
 
         $usuarioMock = $this->createMock(Usuario::class);
 

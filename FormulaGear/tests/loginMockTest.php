@@ -2,7 +2,7 @@
 use PHPUnit\Framework\TestCase;
 require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/UsuarioController.php";
 
-class LoginTest extends TestCase
+class LoginMockTest extends TestCase
 {
     public function testInicioSesionMocks()
     {

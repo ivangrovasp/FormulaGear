@@ -1,6 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Controller/UsuarioController.php";
+require_once "C:/xampp/htdocs/FormulaGear/FormulaGear/app/Model/Usuario.php";
 
 class LoginMockTest extends TestCase
 {

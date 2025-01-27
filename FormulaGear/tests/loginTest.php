@@ -7,8 +7,8 @@ class LoginTest extends TestCase
 {
     public function testInicioSesion()
     {
-        $correoFiltrado = 'mathiasveira@gmail.com';
-        $contraseñaFiltrada = 'mathias123'; 
+        $correoFiltrado = 'alberto@gmail.com';
+        $contraseñaFiltrada = 'alberto123'; 
         
         $usuarioController = new UsuarioController();
         

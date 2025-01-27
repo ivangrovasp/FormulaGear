@@ -7,20 +7,17 @@ class LoginMockTest extends TestCase
 {
     public function testInicioSesionMocks()
     {
-        $correoFiltrado = 'mathiasveira@gmail.com';
-        $contraseñaFiltrada = 'aaaaa';
-
         $usuarioMock = $this->createMock(Usuario::class);
 
-        $usuarioMock->method('verificarCredenciales')
-            ->with($correoFiltrado, $contraseñaFiltrada)
-            ->willReturn(false);
+        $usuarioMock->method('getUser')
+            ->willReturn(new Usuario(0,"Alberto","alberto@gmail.com",false,"contraseñaErronea"));
 
-        $usuarioController = new UsuarioController($usuarioMock);
+        $usuarioController = new UsuarioController();
 
-        $resultado = $usuarioController->getLogin($correoFiltrado, $contraseñaFiltrada);
+        $resultado = $usuarioController->getLogin($usuarioMock->getCorreoUsuario(), $usuarioMock->getPassUsuario());
 
         $this->assertEquals('Contraseña no válida', $resultado);
+
     }
 }
 ?>

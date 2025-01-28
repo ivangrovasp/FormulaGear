@@ -43,7 +43,7 @@ Class Sesion{
      * @param string $nombre nombre de la variable de la sesión a buscar
      * @return void
      */
-    public function eliminarVariableSesion($nombre){
+    public static function eliminarVariableSesion($nombre){
         unset($_SESSION[$nombre]);
     }
 }
